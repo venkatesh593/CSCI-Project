@@ -5,7 +5,7 @@ body {
 .project-btn-primary {
     background-color: #FDB44B!important;
     border-color: black!important;
-    color: black;
+    color: black!important;
 }
 
 .project-btn-secondary {
