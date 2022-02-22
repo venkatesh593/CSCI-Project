@@ -16,7 +16,11 @@
     <link rel="stylesheet" href="../css/global.css">
 
 </head>
-
+<script>
+    function redirectToExtern() {
+        window.location.href = './registrationconfirmation.html'
+    }
+</script>
 <body style="background: aliceblue;">
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container-fluid">
@@ -53,10 +57,10 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="./editprofile.html">
                                     Profile</a>
-                                <a class="dropdown-item" href="#">Manage Payment Methods</a>
-                                <a class="dropdown-item" href="#">Edit Billing Information</a>
-                                <a class="dropdown-item" href="#">Order History</a>
-                                <a class="dropdown-item" href="./signout">Logout</a>
+                                <a class="dropdown-item" href="./editpaymentinformation.html">Manage Payment Methods</a>
+                                <a class="dropdown-item" href="./editbiilinginformation.html">Edit Billing Information</a>
+                               
+                                <a class="dropdown-item" href="./signin.html">Logout</a>
                                 <a class="dropdown-item" href="./adminMain.html">Admin Portal</a>
                             </div>
                         </li>
@@ -75,68 +79,95 @@
                 <div class="card border-0 shadow rounded-3 my-5">
                     <div class="card-body p-4 p-sm-5">
                         <h3 class="card-title">Registration</h3>
-                        <form method="post" action="${loginURL}">
+                        <!-- <form method="post" action="${loginURL}"> -->
+                        <!-- <form> -->
+
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="username" name="username"
-                                    placeholder="User Name" required>
-                                <label for="username">First Name</label>
+                                    placeholder="User Name" >
+                                <label for="username">First Name*</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="username" name="username"
-                                    placeholder="User Name" required>
-                                <label for="username">Last Name</label>
+                                    placeholder="User Name" >
+                                <label for="username">Last Name*</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="username" name="username"
-                                    placeholder="User Name" required>
-                                <label for="username">Email Address</label>
+                                    placeholder="User Name" >
+                                <label for="username">Email Address*</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="username" name="username"
-                                    placeholder="User Name" required>
-                                <label for="username">Phone Number</label>
+                                    placeholder="User Name" >
+                                <label for="username">Phone Number*</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="username" name="username"
-                                    placeholder="User Name" required>
-                                <label for="username">User Name</label>
+                                    placeholder="User Name" >
+                                <label for="username">User Name*</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="password" class="form-control" id="password" name="password"
-                                    placeholder="Password" required>
-                                <label for="password">Password</label>
+                                    placeholder="Password" >
+                                <label for="password">Password*</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="password" class="form-control" id="password" name="password"
-                                    placeholder="Password" required>
-                                <label for="password">Confirm Password</label>
+                                    placeholder="Password" >
+                                <label for="password">Confirm Password*</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="username" name="username"
-                                    placeholder="User Name" required>
+                                    placeholder="User Name" >
                                 <label for="username">Street Address</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="username" name="username"
-                                    placeholder="User Name" required>
+                                    placeholder="User Name" >
                                 <label for="username">City</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="username" name="username"
-                                    placeholder="User Name" required>
+                                    placeholder="User Name" >
                                 <label for="username">State</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="username" name="username"
-                                    placeholder="User Name" required>
+                                    placeholder="User Name" >
                                 <label for="username">Zip Code</label>
                             </div>
+                            <h4 style="font-size: 16px;" class="card-title">Payment Details (optional)</h4>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="username" name="username"
+                                    placeholder="User Name" >
+                                <label for="username">Name On Card</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="username" name="username"
+                                    placeholder="User Name" >
+                                <label for="username">Card Number</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="username" name="username"
+                                    placeholder="User Name" >
+                                <label for="username">Expiration Date</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="username" name="username"
+                                    placeholder="User Name" >
+                                <label for="username">CVV</label>
+                            </div>
+                            <div>
+                                <p>  <input class="form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault"> Subscribe to promotions</p>
+                            </div>
                             <div class="d-grid">
-                                <button class="btn btn-primary project-btn-primary" type="submit">Sign
+                                <button onclick="redirectToExtern()" class="btn btn-primary project-btn-primary">Sign
                                     Up
                                 </button>
                             </div>
-                        </form>
+                        <!-- </form> -->
                     </div>
                 </div>
             </div>

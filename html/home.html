@@ -18,7 +18,14 @@
     crossorigin="anonymous"></script>
 
 </head>
-
+<script>
+    function redirectToExternal() {
+        window.open('https://www.youtube.com/watch?v=0LHxvxdRnYc', '_blank')
+    }
+    function redirectToExtern() {
+        window.location.href = './showtimes.html'
+    }
+</script>
 <body>
     <div>
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
@@ -56,15 +63,15 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
-                                    Testing
+                                    Profile
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="./editprofile.html">
                                         Profile</a>
-                                    <a class="dropdown-item" href="#">Manage Payment Methods</a>
-                                    <a class="dropdown-item" href="#">Edit Billing Information</a>
-                                    <a class="dropdown-item" href="#">Order History</a>
-                                    <a class="dropdown-item" href="./signout">Logout</a>
+                                    <a class="dropdown-item" href="./editpaymentinformation.html">Manage Payment Methods</a>
+                                    <a class="dropdown-item" href="./editbiilinginformation.html">Edit Billing Information</a>
+                                   
+                                    <a class="dropdown-item" href="./signin.html">Logout</a>
                                     <a class="dropdown-item" href="./adminMain.html">Admin Portal</a>
                                 </div>
                             </li>
