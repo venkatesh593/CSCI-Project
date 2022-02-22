@@ -129,9 +129,29 @@
                             <label for="category">Category</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="cast" name="cast"
-                                placeholder="Cast" value="Brie Larson, Gemma Chan, Lashana Lynch, Scarlett Johansson, Mckenna Grace" required>
+                            <input type="textarea" rows="3" class="form-control" id="cast" name="cast"
+                                placeholder="Cast"
+                                value="Brie Larson, Gemma Chan, Lashana Lynch, Scarlett Johansson, Mckenna Grace" required>
+                            <textarea type="text" rows="4" style="height:auto" class="form-control" id="cast" name="cast" placeholder="Cast" required>Brie Larson, Gemma Chan, Lashana Lynch, Scarlett Johansson, Mckenna Grace</textarea>
                             <label for="cast">Cast</label>
+                        </div>
+                        <h6>Poster</h6>
+                        <div class="form-floating mb-3">
+                            <input type="file" class="form-control-file" id="poster">
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="trailer" name="trailer"
+                                placeholder="Trailer" value="https://www.youtube.com/watch?v=0LHxvxdRnYc" required>
+                            <label for="trailer">Trailer</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea type="text" rows="4" style="height:auto" class="form-control" id="synopsis" name="synopsis" placeholder="synopsis" required>Captain Marvel is an extraterrestrial Kree warrior who finds herself caught in the middle of an intergalactic battle between her people and the Skrulls. Living on Earth in 1995, she keeps having recurring memories of another life as U.S. Air Force pilot Carol Danvers. With help from Nick Fury, Captain Marvel tries to uncover the secrets of her past while harnessing her special superpowers to end the war with the evil Skrulls.</textarea>
+                            <label for="synopsis">Synopsis</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="rating" name="rating"
+                                placeholder="Rating" value="PG-13" required>
+                            <label for="rating">Rating</label>
                         </div>
                         <div class="d-grid">
                             <button class="btn btn-primary project-btn-primary" type="submit" href="./managePromotions.html">
