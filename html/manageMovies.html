@@ -107,15 +107,18 @@
                 <h1>Manage Movies </h1>
               </div>
             </div>
-            <div class="row justify-content-center manage-table">
-                <div class="col-9 d-flex justify-content-center">
-                  <table class="table table-striped table-hover table-bordered text-center">
+            <div class="row justify-content-center manage-table table-responsive">
+                <div class="col-10 d-flex justify-content-center ">
+                  <table class="table table-striped table-hover table-bordered text-center table-responsive">
                     <thead>
                       <tr>
                         <th scope="col">Movie Title</th>
                         <th scope="col">Director</th>
                         <th scope="col">Producer</th>
                         <th scope="col">Category</th>
+                        <th scope="col">Synopsis</th>
+                        <th scope="col">Trailer</th>
+                        <th scope="col">MPAA-US Film Rating</th>
                         <th scope="col">Cast</th>
                         <th scope="col">Edit</th>
                         <th scope="col">Delete</th>
@@ -123,11 +126,18 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <th scope="row">Captain Marvel</th>
-                        <td>Anna Boden and Ryan Fleck</td>
-                        <td>Kevin Feige</td>
-                        <td>Action/Superhero</td>
-                        <td>Brie Larson, Gemma Chan, Lashana Lynch, Scarlett Johansson, Mckenna Grace</td>
+                        <th class="align-middle" scope="row">Captain Marvel</th>
+                        <td class="align-middle">Anna Boden and Ryan Fleck</td>
+                        <td class="align-middle">Kevin Feige</td>
+                        <td class="align-middle">Action/Superhero</td>
+                        <td class="align-middle"><button type="button" class="project-btn-primary btn btn-primary" data-toggle="modal" data-target="#captainMarvelModal">
+                          View Synopsis
+                        </button></td>
+                        <td class="align-middle"><a href="https://www.youtube.com/watch?v=0LHxvxdRnYc">
+                          <img style="width:100px; height:148px"  src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/AtsgWhDnHTq68L0lLsUrCnM7TjG.jpg">
+                        </a></td>
+                        <td class="align-middle">PG-13</td>
+                        <td class="align-middle">Brie Larson, Gemma Chan, Lashana Lynch, Scarlett Johansson, Mckenna Grace</td>
                         <td class="align-middle">
                           <a href="./editMovie.html">
                             <img src="../images/pencil.svg">
@@ -140,11 +150,18 @@
                         </td>
                       </tr>
                       <tr>
-                        <th scope="row">Black Panther</th>
-                        <td>Ryan Coogler</td>
-                        <td>Kevin Feige</td>
-                        <td>Action/Superhero</td>
-                        <td>Chadwick Boseman, Michael B. Jordan, Lupita Nyong'o, Danai Gurira, Letitia Wright, Daniel Kaluuya</td>
+                        <th scope="row" class="align-middle">Black Panther</th>
+                        <td class="align-middle">Ryan Coogler</td>
+                        <td class="align-middle">Kevin Feige</td>
+                        <td class="align-middle">Action/Superhero</td>
+                        <td class="align-middle"><button type="button" class="project-btn-primary btn btn-primary" data-toggle="modal" data-target="#blackPantherModal">
+                          View Synopsis
+                        </button></td>
+                        <td class="align-middle"><a href="https://www.youtube.com/watch?v=xjDjIWPwcPU">
+                          <img style="width:100px; height:148px"  src="https://i.imgur.com/LTcZXWg.jpg">
+                        </a></td>
+                        <td class="align-middle">PG-13</td>
+                        <td class="align-middle">Chadwick Boseman, Michael B. Jordan, Lupita Nyong'o, Danai Gurira, Letitia Wright, Daniel Kaluuya</td>
                         <td class="align-middle">
                           <a href="./editMovie.html">
                             <img src="../images/pencil.svg">
@@ -157,11 +174,18 @@
                         </td>
                       </tr>
                       <tr>
-                        <th scope="row">Pushpa</th>
-                        <td>Sukumar</td>
-                        <td>Naveen Yerneni and Y. Ravi Shankar</td>
-                        <td>Action Drama</td>
-                        <td>Allu Arjun, Rashmika Mandanna, Samantha Ruth Prabhu, Fahadh, Anasuya Bharadwaj, Sunil</td>
+                        <th class="align-middle" scope="row">Pushpa</th>
+                        <td class="align-middle">Sukumar</td>
+                        <td class="align-middle">Naveen Yerneni and Y. Ravi Shankar</td>
+                        <td class="align-middle">Action Drama</td>
+                        <td class="align-middle"><button type="button" class="project-btn-primary btn btn-primary" data-toggle="modal" data-target="#pushpaModal">
+                          View Synopsis
+                        </button></td>
+                        <td class="align-middle"><a href="https://www.youtube.com/watch?v=Q1NKMPhP8PY">
+                          <img style="width:100px; height:148px"  src="https://i.imgur.com/xsbgI4K.jpg">
+                        </a></td>
+                        <td class="align-middle">PG-13</td>
+                        <td class="align-middle">Allu Arjun, Rashmika Mandanna, Samantha Ruth Prabhu, Fahadh, Anasuya Bharadwaj, Sunil</td>
                         <td class="align-middle">
                           <a href="./editMovie.html">
                             <img src="../images/pencil.svg">
@@ -174,11 +198,18 @@
                         </td>
                       </tr>
                       <tr>
-                        <th scope="row">Spider Man: No Way Home</th>
-                        <td colspan="">Jon Watts</td>
-                        <td>Kevin Feige and Amy Pascal</td>
-                        <td>Action/SuperHero</td>
-                        <td>Tom Holland, Tobey Maguire, Zendaya, Andrew Garfield, Marisa Tomei, Willem Dafoe</td>
+                        <th class="align-middle" scope="row">Spider Man: No Way Home</th>
+                        <td class="align-middle">Jon Watts</td>
+                        <td class="align-middle">Kevin Feige and Amy Pascal</td>
+                        <td class="align-middle">Action/SuperHero</td>
+                        <td class="align-middle"><button type="button" class="project-btn-primary btn btn-primary" data-toggle="modal" data-target="#spiderManModal">
+                          View Synopsis
+                        </button></td>
+                        <td class="align-middle"><a href="https://www.youtube.com/watch?v=JfVOs4VSpmA">
+                          <img style="width:100px; height:148px" src="https://i.imgur.com/MRTWajP.jpg">
+                        </a></td>
+                        <td class="align-middle">PG-13</td>
+                        <td class="align-middle">Tom Holland, Tobey Maguire, Zendaya, Andrew Garfield, Marisa Tomei, Willem Dafoe</td>
                         <td class="align-middle">
                           <a href="./editMovie.html">
                             <img src="../images/pencil.svg">
@@ -197,4 +228,117 @@
           </div>
         </div>
 
+  <!-- Captain Marvel Modal -->
+  <div class="modal fade" id="captainMarvelModal" tabindex="-1" role="dialog" aria-labelledby="captainMarvelModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="captainMarvelLongTitle">Captain Marvel Synopsis</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Captain Marvel is an extraterrestrial Kree warrior who finds herself caught in the middle of an intergalactic
+          battle between her people and the Skrulls. Living on Earth in 1995, she keeps having recurring memories of
+          another life as U.S. Air Force pilot Carol Danvers. With help from Nick Fury, Captain Marvel tries to uncover
+          the secrets of her past while harnessing her special superpowers to end the war with the evil Skrulls.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Captain Marvel Modal -->
+    <div class="modal fade" id="captainMarvelModal" tabindex="-1" role="dialog" aria-labelledby="captainMarvelModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="captainMarvelLongTitle">Captain Marvel Synopsis</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Captain Marvel is an extraterrestrial Kree warrior who finds herself caught in the middle of an intergalactic
+            battle between her people and the Skrulls. Living on Earth in 1995, she keeps having recurring memories of
+            another life as U.S. Air Force pilot Carol Danvers. With help from Nick Fury, Captain Marvel tries to uncover
+            the secrets of her past while harnessing her special superpowers to end the war with the evil Skrulls.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Black Panther Modal -->
+  <div class="modal fade" id="blackPantherModal" tabindex="-1" role="dialog" aria-labelledby="blackPantherModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="blackPantherLongTitle">Black Panther Synopsis</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          After the death of his father, T'Challa returns home to the African nation of Wakanda to take his rightful place
+          as king. When a powerful enemy suddenly reappears, T'Challa's mettle as king -- and as Black Panther -- gets
+          tested when he's drawn into a conflict that puts the fate of Wakanda and the entire world at risk. Faced with
+          treachery and danger, the young king must rally his allies and release the full power of Black Panther to defeat
+          his foes and secure the safety of his people.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Pushpa Modal -->
+    <div class="modal fade" id="pushpaModal" tabindex="-1" role="dialog" aria-labelledby="pushpaModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="pushpaLongTitle">Pushpa Synopsis</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Violence erupts between red sandalwood smugglers and the police charged with bringing down their organisation
+            in the Seshachalam forests of South India.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Spider Man: No Way Home Modal -->
+  <div class="modal fade" id="spiderManModal" tabindex="-1" role="dialog" aria-labelledby="spiderManModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="spiderManLongTitle">Spider Man: No Way Home Synopsis</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          With Spider-Man's identity now revealed, our friendly neighborhood web-slinger is unmasked and no longer able
+          to separate his normal life as Peter Parker from the high stakes of being a superhero. When Peter asks for help
+          from Doctor Strange, the stakes become even more dangerous, forcing him to discover what it truly means to be
+          Spider-Man.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
