@@ -22,15 +22,17 @@ public class userEntity {
 
     private int phoneNumber;
 
-    private int age;
+    //private int age;
 
     private String billingAddress;
 
+    /*
     private LocalDate dateOfBirth;
 
     private int usertype_id;
 
     private int userstatus_id;
+    */
 
     public int getUser_id() {
         return user_id;
@@ -88,6 +90,7 @@ public class userEntity {
         this.phoneNumber = phoneNumber;
     }
 
+    /*
     public int getAge() {
         return age;
     }
@@ -95,6 +98,7 @@ public class userEntity {
     public void setAge(int age) {
         this.age = age;
     }
+    */
 
     public String getBillingAddress() {
         return billingAddress;
@@ -104,6 +108,7 @@ public class userEntity {
         this.billingAddress = billingAddress;
     }
 
+    /*
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
@@ -127,4 +132,5 @@ public class userEntity {
     public void setUserstatus_id(int userstatus_id) {
         this.userstatus_id = userstatus_id;
     }
+    */
 }
