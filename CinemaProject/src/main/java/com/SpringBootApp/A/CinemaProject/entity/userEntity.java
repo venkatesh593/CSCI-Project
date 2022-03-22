@@ -20,7 +20,7 @@ public class userEntity {
 
     private String email;
 
-    private int phoneNumber;
+    private String phoneNumber;
 
     //private int age;
 
@@ -82,11 +82,11 @@ public class userEntity {
         this.email = email;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

@@ -96,7 +96,7 @@
                                 <label for="email">Email Address*</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <form:input type="number" class="form-control" id="phoneNumber" name="phoneNumber"
+                                <form:input type="text" class="form-control" id="phoneNumber" name="phoneNumber"
                                     placeholder="Phone Number" path="phoneNumber" />
                                 <label for="phoneNumber">Phone Number*</label>
                             </div>
@@ -106,7 +106,7 @@
                                 <label for="userName">User Name*</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <form:password type="password" class="form-control" id="password" name="password"
+                                <form:input type="password" class="form-control" id="password" name="password"
                                     placeholder="Password" path="password" />
                                 <label for="password">Password*</label>
                             </div>

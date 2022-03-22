@@ -45,9 +45,10 @@ public class registrationController {
         userForm.setPhoneNumber(userForm.getPhoneNumber());
         userForm.setUserName(userForm.getUserName());
         userForm.setPassword(userForm.getPassword());
+        userForm.setBillingAddress(userForm.getBillingAddress());
 
         userRepo.save(userForm);
 
-        return "registration";
+        return "regconf";
     }
 }
