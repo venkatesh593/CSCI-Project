@@ -112,11 +112,32 @@
                             </div>
 
                             <div class="form-floating mb-3">
-                                <form:input type="text" class="form-control" id="billingAddress" name="billingAddress"
-                                    placeholder="Billing Address" path="billingAddress" />
-                                <label for="billingAddress">Billing Address</label>
+                                <form:input type="text" class="form-control" id="street" name="street"
+                                    placeholder="Street" path="street" />
+                                <label for="street">Street</label>
+                            </div>
 
+                                <div class="form-floating mb-3">
+                                        <form:input type="text" class="form-control" id="city" name="city"
+                                        placeholder="City" path="city" />
+                                 <label for="city">City</label>
+                                </div>
 
+                            <div class="form-floating mb-3">
+                                <form:input type="text" class="form-control" id="state" name="state"
+                                    placeholder="State" path="state" />
+                                <label for="state">State</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                       <form:input type="text" class="form-control" id="zipCode" name="zipCode"
+                                           placeholder="Zip Code" path="zipCode" />
+                                  <label for="zipCode">Zip Code</label>
+                            </div>
+
+                            <div>
+                                        <form:checkbox path="wantsPromotions" value="true" label="Subscribe to Promotions"/>
+                            </div>
 
                             <div class="d-grid">
                                 <form:button type="submit" class="from-control">Submit

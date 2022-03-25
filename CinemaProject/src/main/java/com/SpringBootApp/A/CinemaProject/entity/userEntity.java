@@ -22,17 +22,25 @@ public class userEntity {
 
     private String phoneNumber;
 
-    //private int age;
 
-    private String billingAddress;
+    private String street;
 
-    /*
-    private LocalDate dateOfBirth;
+    private String city;
 
-    private int usertype_id;
+    private String state;
 
-    private int userstatus_id;
-    */
+    private String zipCode;
+
+    private String wantsPromotions = "false";
+
+    public String getWantsPromotions() {
+        return wantsPromotions;
+    }
+
+    public void setWantsPromotions(String wantsPromotions) {
+        this.wantsPromotions = wantsPromotions;
+    }
+
 
     public int getUser_id() {
         return user_id;
@@ -90,47 +98,35 @@ public class userEntity {
         this.phoneNumber = phoneNumber;
     }
 
-    /*
-    public int getAge() {
-        return age;
+    public String getStreet() {
+        return street;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-    */
-
-    public String getBillingAddress() {
-        return billingAddress;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
-    public void setBillingAddress(String billingAddress) {
-        this.billingAddress = billingAddress;
+    public String getCity() {
+        return city;
     }
 
-    /*
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public String getState() {
+        return state;
     }
 
-    public int getUsertype_id() {
-        return usertype_id;
+    public void setState(String state) {
+        this.state = state;
     }
 
-    public void setUsertype_id(int usertype_id) {
-        this.usertype_id = usertype_id;
+    public String getZipCode() {
+        return zipCode;
     }
 
-    public int getUserstatus_id() {
-        return userstatus_id;
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
     }
-
-    public void setUserstatus_id(int userstatus_id) {
-        this.userstatus_id = userstatus_id;
-    }
-    */
 }
