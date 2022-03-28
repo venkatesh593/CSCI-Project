@@ -2,13 +2,15 @@ package com.SpringBootApp.A.CinemaProject.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="User")
 public class userEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int user_id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long user_id;
 
     private String firstName;
 
@@ -22,7 +24,6 @@ public class userEntity {
 
     private String phoneNumber;
 
-
     private String street;
 
     private String city;
@@ -33,6 +34,37 @@ public class userEntity {
 
     private String wantsPromotions = "false";
 
+    private String userStatus = "INACTIVE";
+
+    private String verCode;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch=FetchType.EAGER, orphanRemoval=true)
+    private Set<payCardEntity> payCards = new HashSet<>();
+
+    public String getUserStatus() {
+        return userStatus;
+    }
+
+    public void setUserStatus(String userStatus) {
+        this.userStatus = userStatus;
+    }
+
+    public String getVerCode() {
+        return verCode;
+    }
+
+    public void setVerCode(String verCode) {
+        this.verCode = verCode;
+    }
+
+    public Set<payCardEntity> getPayCards() {
+        return payCards;
+    }
+
+    public void setPayCards(Set<payCardEntity> payCards) {
+        this.payCards = payCards;
+    }
+
     public String getWantsPromotions() {
         return wantsPromotions;
     }
@@ -42,11 +74,11 @@ public class userEntity {
     }
 
 
-    public int getUser_id() {
+    public long getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(int user_id) {
+    public void setUser_id(long user_id) {
         this.user_id = user_id;
     }
 

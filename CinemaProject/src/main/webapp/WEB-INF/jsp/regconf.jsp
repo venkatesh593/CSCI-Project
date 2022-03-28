@@ -1,3 +1,5 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <html>
 
 <head>
@@ -79,10 +81,19 @@
         <h1 class="display-3">Thank you for signing up</h1>
         <h3 class="display-6" style="margin-top: 1%;">A confirmation email has been sent for your account
             verification.</h3>
-        <h3>Your verification code is 38#G78</h3>
-        <p class="lead" style="margin-top: 5%;">
-            <a class="btn btn-warning btn-lg" href="./signin.html" role="button">Return To Login</a>
-        </p>
+        <h3>Please Enter Your Verification Code</h3>
+        <form:form method="POST" modelAttribute="regconf">
+        <div class="form-floating mb-3">
+               <form:input type="text" class="form-control" id="verCode" name="verCode"
+               path="verCode" placeholder="Verification Code" />
+               <label for="verCode">Verification Code</label>
+        </div>
+        <div class="d-grid">
+             <form:button class="from-control" type="submit">Submit
+             </form:button>
+
+        </div>
+        </form:form>
     </div>
 </body>
 

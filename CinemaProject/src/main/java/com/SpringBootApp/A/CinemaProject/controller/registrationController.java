@@ -11,7 +11,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import javax.mail.*;
 import javax.mail.internet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +19,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Properties;
+import java.util.Random;
 
 @Controller
 public class registrationController {
@@ -44,6 +44,8 @@ public class registrationController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
 
+
+
         // Mandatory
         userForm.setFirstName(userForm.getFirstName());
         userForm.setLastName(userForm.getLastName());
@@ -51,6 +53,9 @@ public class registrationController {
         userForm.setPhoneNumber(userForm.getPhoneNumber());
         userForm.setUserName(userForm.getUserName());
         userForm.setPassword(userForm.getPassword());
+
+        String verCode = getSaltString();
+        userForm.setVerCode(verCode);
 
         // Optional
         userForm.setStreet(userForm.getStreet());
@@ -62,14 +67,53 @@ public class registrationController {
         userForm.setWantsPromotions(userForm.getWantsPromotions());
 
         // Confirmation Email
-        sendmail(userForm.getEmail().toLowerCase());
+        sendmail(userForm.getEmail().toLowerCase(), verCode);
 
         userRepo.save(userForm);
 
         return "regconf";
     }
 
-    private void sendmail(String emailRecipient) throws AddressException, MessagingException, IOException {
+    @RequestMapping(value = "/regconf", method = RequestMethod.GET)
+    public String showRegConfPage(Model model) {
+        model.addAttribute("regconf", new userEntity());
+        return "regconf";
+    }
+
+    @RequestMapping(value = "/regconf", method = RequestMethod.POST)
+    public Object submitConfCode(@ModelAttribute("regconf") userEntity userForm, Model model) {
+
+        userEntity userInstance = userRepo.findByVerCode(userForm.getVerCode());
+
+        if (userInstance == null || !(userInstance.getVerCode().matches(userForm.getVerCode()))) {
+            System.out.println("Incorrect Verification Code");
+            System.out.println(userInstance);
+            return "regconf";
+        }
+        if (!(userInstance == null || !(userInstance.getVerCode().matches(userForm.getVerCode())))) {
+            userInstance.setUserStatus("ACTIVE");
+            userRepo.save(userInstance);
+            System.out.println("Customer Account is now active");
+            return "login";
+        }
+
+        return "regconf";
+    }
+
+    protected String getSaltString() {
+        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 6) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+            salt.append(SALTCHARS.charAt(index));
+        }
+        String saltStr = salt.toString();
+        return saltStr;
+
+    }
+
+    private void sendmail(String emailRecipient, String verCode) throws AddressException, MessagingException, IOException {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
@@ -86,7 +130,7 @@ public class registrationController {
 
         msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(emailRecipient));
         msg.setSubject("Registration Confirmation Email");
-        msg.setContent("Hello, \n\nThank you for registering to our cinema e-booking system!", "text/html");
+        msg.setContent("Hello, \n\nThank you for registering to our cinema e-booking system!\n\nYour verification code is: "+verCode, "text/html");
         msg.setSentDate(new Date());
 
         /*

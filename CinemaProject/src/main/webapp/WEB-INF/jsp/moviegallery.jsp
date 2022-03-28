@@ -108,7 +108,6 @@ Support: https://sellix.io/fr0zen/contact
         <!-- <div class="section-header">
             <h3>Take a look at InAppBI</h3>
             <div class="border-div">
-
             </div>
             <p>Test-drive a dashboard and experience InAppBI in action.</p>
         </div> -->
