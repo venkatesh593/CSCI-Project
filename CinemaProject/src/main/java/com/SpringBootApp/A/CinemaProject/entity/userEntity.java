@@ -6,11 +6,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name="User")
+@Table(name="users")
 public class userEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long user_id;
+
+    private String role;
 
     private String firstName;
 
@@ -23,6 +25,8 @@ public class userEntity {
     private String email;
 
     private String phoneNumber;
+
+    private boolean enabled;
 
     private String street;
 
@@ -97,6 +101,14 @@ public class userEntity {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    public String getRole() { return role; }
+
+    public void setRole(String role) { this.role = role; }
+
+    public boolean getEnabled() { return enabled; }
+
+    public void setEnabled(boolean enabled) { this.enabled = enabled;}
 
     public String getUserName() {
         return userName;

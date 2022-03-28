@@ -14,8 +14,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
         integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
         crossorigin="anonymous"></script>
-    <link href="../css/navbar.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/global.css">
+    <link href="../../../resources/static/css/navbar.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../resources/static/css/global.css">
 
 </head>
 

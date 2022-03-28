@@ -14,15 +14,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
         integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/global.css">
 
 </head>
 
 <body style="background: aliceblue;">
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/"><img style="height: 50px; width:190px" src="../images/project_logo.png"
+            <a class="navbar-brand" href="/"><img style="height: 50px; width:190px" src="/images/project_logo.png"
                     alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -36,13 +36,13 @@
                             <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./moviegallery.html">Movies</a>
+                            <a class="nav-link active" aria-current="page" href="./moviegallery">Movies</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./signup.html">Sign Up</a>
+                            <a class="nav-link" href="./registration">Sign Up</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./signin.html">Login</a>
+                            <a class="nav-link" href="./login">Login</a>
                         </li>
 
                     </ul>
@@ -58,8 +58,8 @@
                                 <a class="dropdown-item" href="./editpaymentinformation.html">Manage Payment Methods</a>
                                 <a class="dropdown-item" href="./editbiilinginformation.html">Edit Billing Information</a>
 
-                                <a class="dropdown-item" href="./signin.html">Logout</a>
-                                <a class="dropdown-item" href="./adminMain.html">Admin Portal</a>
+                                <a class="dropdown-item" href="./logout">Logout</a>
+                                <a class="dropdown-item" href="./admin">Admin Portal</a>
                             </div>
                         </li>
                     </ul>

@@ -5,6 +5,7 @@ import com.SpringBootApp.A.CinemaProject.repository.userRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,6 +26,9 @@ import java.util.Random;
 public class registrationController {
     @Autowired
     private userRepository userRepo;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public registrationController(userRepository userRepo) {
         this.userRepo = userRepo;
@@ -52,7 +56,9 @@ public class registrationController {
         userForm.setEmail(userForm.getEmail().toLowerCase());
         userForm.setPhoneNumber(userForm.getPhoneNumber());
         userForm.setUserName(userForm.getUserName());
-        userForm.setPassword(userForm.getPassword());
+        userForm.setPassword(bCryptPasswordEncoder.encode(userForm.getPassword()));
+        userForm.setEnabled(true);
+        userForm.setRole("USER");
 
         String verCode = getSaltString();
         userForm.setVerCode(verCode);
