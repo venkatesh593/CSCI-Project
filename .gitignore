@@ -7,3 +7,9 @@ CinemaProject/.idea/misc.xml
 CinemaProject/src/main/resources/data/spring-boot-h2-db.mv.db
 CinemaProject/.idea/uiDesigner.xml
 CinemaProject/.idea/workspace.xml
+CinemaProject/.idea/compiler.xml
+CinemaProject/.idea/encodings.xml
+CinemaProject/.idea/jarRepositories.xml
+CinemaProject/.idea/vcs.xml
+CinemaProject/src/main/resources/data/spring-boot-h2-db.mv.db
+CinemaProject/src/main/resources/data/spring-boot-h2-db.trace.db
