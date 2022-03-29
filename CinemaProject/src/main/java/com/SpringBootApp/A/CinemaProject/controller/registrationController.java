@@ -1,6 +1,7 @@
 package com.SpringBootApp.A.CinemaProject.controller;
-
+import com.SpringBootApp.A.CinemaProject.entity.payCardEntity;
 import com.SpringBootApp.A.CinemaProject.entity.userEntity;
+import com.SpringBootApp.A.CinemaProject.repository.payCardRepository;
 import com.SpringBootApp.A.CinemaProject.repository.userRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,40 +19,30 @@ import javax.mail.internet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.Date;
-import java.util.Locale;
-import java.util.Properties;
-import java.util.Random;
-
+import java.util.*;
 @Controller
 public class registrationController {
     @Autowired
     private userRepository userRepo;
-
+    @Autowired
+    private payCardRepository payCardRepo;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-
     public registrationController(userRepository userRepo) {
         this.userRepo = userRepo;
     }
-
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String showRegPage(Model model) {
         model.addAttribute("userForm", new userEntity());
-
+        //model.addAttribute("payForm", new payCardEntity());
         return "registration";
     }
-
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public Object registerAccount(@ModelAttribute("userForm") userEntity userForm, BindingResult bindingResult)
             throws IOException, MessagingException {
-
         if (bindingResult.hasErrors()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
-
-
-
         // Mandatory
         userForm.setFirstName(userForm.getFirstName());
         userForm.setLastName(userForm.getLastName());
@@ -60,43 +52,43 @@ public class registrationController {
         userForm.setPassword(bCryptPasswordEncoder.encode(userForm.getPassword()));
         userForm.setEnabled(true);
         userForm.setRole("USER");
-
         String verCode = getSaltString();
         userForm.setVerCode(verCode);
-
         // Optional
         userForm.setStreet(userForm.getStreet());
         userForm.setCity(userForm.getCity());
         userForm.setState(userForm.getState());
         userForm.setZipCode(userForm.getZipCode());
-
         // Opt-in Promotions
         userForm.setWantsPromotions(userForm.getWantsPromotions());
-
+        // Payment Card
+        /*
+        payForm.setCardType(payForm.getCardType());
+        payForm.setCardNumber(payForm.getCardNumber());
+        payForm.setExpDate(payForm.getExpDate());
+        payForm.setCvv(payForm.getCvv());
+        payForm.setUser(userForm);
+        Set<payCardEntity> payCards = new HashSet<>();
+        payCards.add(payForm);
+        userForm.setPayCards(payCards);
+         */
         // Confirmation Email
         sendmail(userForm.getEmail().toLowerCase(), verCode);
-
         userRepo.save(userForm);
-
-        return "regconf";
+        return "redirect:/regconf";
     }
-
     @RequestMapping(value = "/regconf", method = RequestMethod.GET)
-    public String showRegConfPage(Model model) {
-        model.addAttribute("regConf", new String());
+    public String showRegConfPage(ModelMap model) {
+        model.addAttribute("verCode", new userEntity());
         return "regconf";
     }
-
     @RequestMapping(value = "/regconf", method = RequestMethod.POST)
-    public Object submitConfCode(@ModelAttribute("regConf") String verCode, BindingResult bindingResult)
+    public Object submitConfCode(@ModelAttribute("verCode") String verCode, BindingResult bindingResult)
             throws IOException, MessagingException {
-
         if (bindingResult.hasErrors()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
-
         userEntity userInstance = userRepo.findByVerCode(verCode);
-
         if (userInstance == null || !(userInstance.getVerCode().matches(verCode))) {
             System.out.println("Incorrect Verification Code");
             System.out.println(userInstance);
@@ -106,12 +98,10 @@ public class registrationController {
             userInstance.setUserStatus("ACTIVE");
             userRepo.save(userInstance);
             System.out.println("Customer Account is now active");
-            return "login";
+            return "redirect:/login";
         }
-
-        return "regconf";
+        return "redirect:/regconf";
     }
-
     protected String getSaltString() {
         String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         StringBuilder salt = new StringBuilder();
@@ -122,16 +112,13 @@ public class registrationController {
         }
         String saltStr = salt.toString();
         return saltStr;
-
     }
-
     private void sendmail(String emailRecipient, String verCode) throws AddressException, MessagingException, IOException {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
-
         Session session = Session.getInstance(props, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication("cinemaregconf@gmail.com", "HotStuffSecure1!");
@@ -139,25 +126,21 @@ public class registrationController {
         });
         Message msg = new MimeMessage(session);
         msg.setFrom(new InternetAddress("cinemaregconf@gmail.com", false));
-
         msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(emailRecipient));
         msg.setSubject("Registration Confirmation Email");
         msg.setContent("Hello, \n\nThank you for registering to our cinema e-booking system!\n\nYour verification code is: "+verCode, "text/html");
         msg.setSentDate(new Date());
-
         /*
         MimeBodyPart messageBodyPart = new MimeBodyPart();
         messageBodyPart.setContent("Tutorials point email", "text/html");
-
         Multipart multipart = new MimeMultipart();
         multipart.addBodyPart(messageBodyPart);
         MimeBodyPart attachPart = new MimeBodyPart();
-
         attachPart.attachFile("/var/tmp/image19.png");
         multipart.addBodyPart(attachPart);
         msg.setContent(multipart);
         */
-
         Transport.send(msg);
     }
 }
+

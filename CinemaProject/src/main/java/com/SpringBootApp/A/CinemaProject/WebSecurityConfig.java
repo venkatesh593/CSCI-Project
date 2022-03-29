@@ -49,7 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin().failureForwardUrl("/login?error")
                 .and()
-                .logout().logoutSuccessUrl("/moviegallery")
+                .logout().logoutSuccessUrl("/login?logout")
                 .permitAll();
         http.csrf().disable();
         http.headers().frameOptions().disable();

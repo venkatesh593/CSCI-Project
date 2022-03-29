@@ -4,6 +4,7 @@ import com.SpringBootApp.A.CinemaProject.entity.userEntity;
 import com.SpringBootApp.A.CinemaProject.repository.userRepository;
 //import com.SpringBootApp.A.CinemaProject.service.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -20,8 +21,9 @@ public class GalleryController {
     //private SecurityService securityService;
 
     @RequestMapping(value = "/moviegallery", method = RequestMethod.GET)
-    public String showLoginPage(ModelMap model) {
+    public String showGalleryPage(ModelMap model) {
         model.addAttribute("login", new userEntity());
+        System.out.println(SecurityContextHolder.getContext().getAuthentication().getDetails());
         return "moviegallery";
     }
 

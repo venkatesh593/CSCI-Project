@@ -50,10 +50,10 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Profile
+                                ${pageContext.request.userPrincipal.name}
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="./editprofile.html">
+                                <a class="dropdown-item" href="./editprofile">
                                     Profile</a>
                                 <a class="dropdown-item" href="./editpaymentinformation.html">Manage Payment Methods</a>
                                 <a class="dropdown-item" href="./editbiilinginformation.html">Edit Billing Information</a>
