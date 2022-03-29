@@ -12,20 +12,18 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 @Controller
 public class EditProfileController {
     @Autowired
     private userRepository userRepo;
     @Autowired
     private SecurityService securityService;
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @RequestMapping(value = "edit/{userName}", method = RequestMethod.GET)
-    public String getEditUserData(@PathVariable("userName") String userName, Model model, userEntity userForm) {
-        //userEntity loggedUser = userRepo.findByUserName(userName);
-        //System.out.println(loggedUser.getUserName());
-        model.addAttribute("accountName", userName);
-        return "editprofile";
-    }
+
 
     @RequestMapping(value = "editprofile/{userName}", method = RequestMethod.GET)
     public String showEditProfilePage(@PathVariable("userName") String userName, Model model, userEntity userForm) {
@@ -33,19 +31,6 @@ public class EditProfileController {
         //System.out.println(loggedUser.getUserName());
         model.addAttribute("loggedUser", loggedUser);
         model.addAttribute("userForm", new userEntity());
-        /*
-        model.addAttribute("firstName", loggedUser.getFirstName());
-        model.addAttribute("lastName", loggedUser.getLastName());
-        model.addAttribute("userName", loggedUser.getUserName());
-        model.addAttribute("email", loggedUser.getEmail());
-        model.addAttribute("password", loggedUser.getPassword());
-        model.addAttribute("phoneNumber", loggedUser.getPhoneNumber());
-        model.addAttribute("street", loggedUser.getStreet());
-        model.addAttribute("city", loggedUser.getCity());
-        model.addAttribute("state", loggedUser.getState());
-        model.addAttribute("zipCode", loggedUser.getZipCode());
-        model.addAttribute("wantsPromotions", loggedUser.getWantsPromotions());
-        */
 
 
         return "editprofile";
@@ -60,7 +45,9 @@ public class EditProfileController {
         accountInstance.setLastName(userForm.getLastName());
         accountInstance.setUserName(userForm.getUserName());
         // Email cannot be changed
-        accountInstance.setPassword(userForm.getPassword());
+        if(bCryptPasswordEncoder.matches(userForm.getPassConf(), accountInstance.getPassword())) {
+            accountInstance.setPassword(bCryptPasswordEncoder.encode(userForm.getPassword()));
+        }
         accountInstance.setPhoneNumber(userForm.getPhoneNumber());
         accountInstance.setStreet(userForm.getStreet());
         accountInstance.setCity(userForm.getCity());
@@ -70,6 +57,6 @@ public class EditProfileController {
 
         userRepo.save(accountInstance);
 
-        return "redirect:/editprofile/" + userForm.getUserName();
+        return "redirect:/editpaycard/" + userForm.getUserName();
     }
 }

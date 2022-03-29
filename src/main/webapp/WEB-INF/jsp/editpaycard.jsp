@@ -87,77 +87,31 @@
             <div class="bg-white rounded-lg shadow-lg rounded-3 p-5">
                 <div class="tab-content">
                     <div id="nav-tab-card" class="tab-pane fade show active">
-                        <form:form method="POST" modelAttribute="userForm">
-                            <h3 class="display-4 text-center">Edit Profile</h3>
+                        <form:form method="POST" modelAttribute="payForm">
+                            <h3 class="display-4 text-center">Edit Payment Card</h3>
                             <br>
                             <div class="mb-3">
-                                <label for="firstName">First Name</label><br>
-                                <form:input type="text" class="form-control" id="firstName" name="firstName" value="${loggedUser.firstName}"
-                                    path="firstName" />
+                                <label for="cardType">Card Type</label><br>
+                                <form:input type="text" class="form-control" id="cardType" name="cardType" value="${currentCard.cardType}"
+                                    path="cardType" />
                             </div>
                             <div class="mb-3">
-                                <label for="lastName">First Name</label><br>
-                                <form:input type="text" class="form-control" id="lastName" name="lastName" value="${loggedUser.lastName}"
-                                    path="lastName" />
+                                <label for="cardNumber">Card Number</label><br>
+                                <form:input type="text" class="form-control" id="cardNumber" name="cardNumber" value=""
+                                    path="cardNumber" />
                             </div>
                             <div class="mb-3">
-                                <label for="userName">User Name</label><br>
-                                <form:input type="text" class="form-control" id="userName" name="userName" value="${pageContext.request.userPrincipal.name}"
-                                    path="userName" />
+                                <label for="expDate">Expiration Date</label><br>
+                                <form:input type="text" class="form-control" id="expDate" name="expDate" value="${currentCard.expDate}"
+                                    path="expDate" />
                             </div>
                             <div class="mb-3">
-                                <label for="email">Email</label><br>
-                                <form:input type="text" class="form-control" id="email" name="email" readonly="true" value="${loggedUser.email}"
-                                    path="email" />
+                                <label for="cvv">CVV</label><br>
+                                <form:input type="text" class="form-control" id="cvv" name="cvv"  value="${currentCard.cvv}"
+                                    path="cvv" />
                             </div>
-                            <div class="mb-3">
-                                <label for="password">Enter Current Password to Change Password</label>
-                                <form:input type="text" id="passConf" class="form-control" path="passConf" value=""/>
-                            </div>
-                            <div class="mb-3">
-                                 <label for="password">New Password</label>
-                                   <form:input type="text" id="password" class="form-control" path="password" value=""/>
-                                    </div>
 
-                            <div class="mb-3">
-                                <label for="phoneNumber">Phone</label><br>
-                                <form:input type="text" class="form-control" id="phoneNumber" name="phoneNumber" value="${loggedUser.phoneNumber}"
-                                    path="phoneNumber" />
-                            </div>
-                            <div class="mb-3">
-                                <c:forEach var="row" items="${result2.rows}">
-                                    <label for="street">Street Address</label><br>
-                                    <form:input type="text" class="form-control" id="street" name="street" value="${loggedUser.street}"
-                                        path="street" />
-                                </c:forEach>
-                            </div>
-                            <div class="mb-3">
-                                <c:forEach var="row" items="${result2.rows}">
-                                    <label for="city">City</label><br>
-                                    <form:input type="text" class="form-control" id="city" name="city" value="${loggedUser.city}"
-                                        path="city" />
-                                </c:forEach>
-                            </div>
-                            <div class="mb-3">
-                                <c:forEach var="row" items="${result2.rows}">
-                                    <label for="state">State</label><br>
-                                    <form:input type="text" class="form-control" id="state" name="state" value="${loggedUser.state}"
-                                        path="state" />
-                                </c:forEach>
-                            </div>
-                            <div class="mb-3">
-                                <label for="zipCode">Zip Code</label><br>
-                                <form:input type="text" class="form-control" id="zipCode" name="zipCode" value="${loggedUser.zipCode}"
-                                    path="zipCode" />
-                            </div>
-                            <div>
-                                <p>  <form:checkbox class="form-check-input"  value="true"
-                                    id="wantsPromotions" path="wantsPromotions" label="Subscribe to promotions"/> </p>
-                            </div>
-                            <div>
-                              <p>  <form:checkbox class="form-check-input"  value="false"
-                                    id="wantsPromotions" path="wantsPromotions" label="Unsubscribe to promotions"/> </p>
-                            </div>
+
                             <br>
                             <div class="d-grid">
                                 <form:button class="btn btn-success btn-login project-btn-primary " type="submit">Save
