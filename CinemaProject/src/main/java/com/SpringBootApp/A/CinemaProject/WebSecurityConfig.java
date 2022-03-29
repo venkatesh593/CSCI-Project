@@ -47,7 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin().successHandler(authenticationSuccessHandler)
                 .and()
-                .formLogin().failureForwardUrl("/login?error=true")
+                .formLogin().failureForwardUrl("/login?error")
                 .and()
                 .logout().logoutSuccessUrl("/moviegallery")
                 .permitAll();

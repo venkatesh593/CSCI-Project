@@ -19,8 +19,15 @@ public class LoginController {
     private SecurityService securityService;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String showLoginPage(ModelMap model) {
+    public String showLoginPage(ModelMap model, String error, String logout) {
         model.addAttribute("login", new userEntity());
+
+        if (error != null)
+            model.addAttribute("error", "Your username and password is invalid.");
+
+        if (logout != null)
+            model.addAttribute("message", "You have been logged out successfully.");
+
         System.out.println("Loaded properly");
         return "login";
     }
@@ -28,12 +35,6 @@ public class LoginController {
     public Object submitLoginIn(@ModelAttribute("login") userEntity userForm, Model model) {
         userEntity userInstance = userRepo.findByUserName(userForm.getUserName());
 
-        securityService.Login(userForm.getUserName(), userForm.getPassword());
-
-        if(userInstance.getRole().matches("ADMIN")) {
-            System.out.println("Is admin");
-            return "redirect:/admin";
-        } else
-        return "redirect:/moviegallery";
+        return securityService.Login(userForm.getUserName(), userForm.getPassword());
     }
 }

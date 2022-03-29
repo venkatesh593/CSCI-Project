@@ -82,7 +82,7 @@
         <h3 class="display-6" style="margin-top: 1%;">A confirmation email has been sent for your account
             verification.</h3>
         <h3>Please Enter Your Verification Code</h3>
-        <form:form method="POST" modelAttribute="regconf">
+        <form:form method="POST" modelAttribute="vercode">
         <div class="form-floating mb-3">
                <form:input type="text" class="form-control" id="verCode" name="verCode"
                path="verCode" placeholder="Verification Code" />

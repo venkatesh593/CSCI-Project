@@ -37,12 +37,13 @@ public class registrationController {
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String showRegPage(Model model) {
         model.addAttribute("userForm", new userEntity());
+
         return "registration";
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public Object registerAccount(@ModelAttribute("userForm") userEntity userForm, BindingResult bindingResult,
-                                  Model model, HttpServletRequest request) throws IOException, MessagingException {
+    public Object registerAccount(@ModelAttribute("userForm") userEntity userForm, BindingResult bindingResult)
+            throws IOException, MessagingException {
 
         if (bindingResult.hasErrors()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
@@ -82,21 +83,26 @@ public class registrationController {
 
     @RequestMapping(value = "/regconf", method = RequestMethod.GET)
     public String showRegConfPage(Model model) {
-        model.addAttribute("regconf", new userEntity());
+        model.addAttribute("regConf", new String());
         return "regconf";
     }
 
     @RequestMapping(value = "/regconf", method = RequestMethod.POST)
-    public Object submitConfCode(@ModelAttribute("regconf") userEntity userForm, Model model) {
+    public Object submitConfCode(@ModelAttribute("regConf") String verCode, BindingResult bindingResult)
+            throws IOException, MessagingException {
 
-        userEntity userInstance = userRepo.findByVerCode(userForm.getVerCode());
+        if (bindingResult.hasErrors()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
 
-        if (userInstance == null || !(userInstance.getVerCode().matches(userForm.getVerCode()))) {
+        userEntity userInstance = userRepo.findByVerCode(verCode);
+
+        if (userInstance == null || !(userInstance.getVerCode().matches(verCode))) {
             System.out.println("Incorrect Verification Code");
             System.out.println(userInstance);
             return "regconf";
         }
-        if (!(userInstance == null || !(userInstance.getVerCode().matches(userForm.getVerCode())))) {
+        if (!(userInstance == null || !(userInstance.getVerCode().matches(verCode)))) {
             userInstance.setUserStatus("ACTIVE");
             userRepo.save(userInstance);
             System.out.println("Customer Account is now active");

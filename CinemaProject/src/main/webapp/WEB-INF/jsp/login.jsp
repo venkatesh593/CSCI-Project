@@ -1,4 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/tags" %>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -89,10 +91,17 @@
                     <div class="card-body p-4 p-sm-5">
                         <h3 class="card-title">Sign In</h3>
                         <form:form method="POST" modelAttribute="login">
+                            <c:if test="${param.error !=null}">
+                                <div class="alert alert-danger">${error}</div>
+                            </c:if>
+                            <c:if test="${param.message !=null}">
+                                <div class="alert alert-success">${message}</div>
+                            </c:if>
+
                             <div class="form-floating mb-3">
                                 <form:input type="text" class="form-control" id="userName" name="userName"
                                     path="userName" placeholder="User Name" />
-                                <label for="userName">User Name</label>
+                                <label for="userName"> User Name</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <form:input type="password" class="form-control" id="password" name="password"
