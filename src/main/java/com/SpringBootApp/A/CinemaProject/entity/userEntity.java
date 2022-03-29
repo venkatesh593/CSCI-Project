@@ -18,6 +18,9 @@ public class userEntity {
     private String lastName;
     private String userName;
     private String password;
+
+    private String passConf = "";
+
     private String email;
 
     private String phoneNumber;
@@ -32,8 +35,10 @@ public class userEntity {
     private String wantsPromotions = "false";
     private String userStatus = "INACTIVE";
     private String verCode;
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch=FetchType.EAGER, orphanRemoval=true)
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
     private Set<payCardEntity> payCards = new HashSet<>();
+
     public String getUserStatus() {
         return userStatus;
     }
@@ -46,12 +51,14 @@ public class userEntity {
     public void setVerCode(String verCode) {
         this.verCode = verCode;
     }
+
     public Set<payCardEntity> getPayCards() {
         return payCards;
     }
     public void setPayCards(Set<payCardEntity> payCards) {
         this.payCards = payCards;
     }
+
     public String getWantsPromotions() {
         return wantsPromotions;
     }
@@ -75,6 +82,14 @@ public class userEntity {
     }
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getPassConf() {
+        return passConf;
+    }
+
+    public void setPassConf(String passConf) {
+        this.passConf = passConf;
     }
 
     public String getRole() { return role; }

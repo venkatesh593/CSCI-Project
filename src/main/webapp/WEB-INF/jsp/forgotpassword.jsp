@@ -59,7 +59,7 @@
                             <a class="dropdown-item" href="./editpaymentinformation.html">Manage Payment Methods</a>
                             <a class="dropdown-item" href="./editbiilinginformation.html">Edit Billing Information</a>
 
-                            <a class="dropdown-item" href="./signout">Logout</a>
+                            <a class="dropdown-item" href="./logout">Logout</a>
                             <a class="dropdown-item" href="./admin">Admin Portal</a>
                         </div>
                     </li>

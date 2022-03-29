@@ -81,28 +81,24 @@ public class registrationController {
         // Confirmation Email
         sendmail(userForm.getEmail().toLowerCase(), verCode);
         userRepo.save(userForm);
-        return "redirect:/regconf";
+        return "redirect:/paycard/"+userForm.getUserName();
     }
     @RequestMapping(value = "/regconf", method = RequestMethod.GET)
     public String showRegConfPage(ModelMap model) {
-        model.addAttribute("verCode", new userEntity());
+        model.addAttribute("regconf", new userEntity());
         return "regconf";
     }
     @RequestMapping(value = "/regconf", method = RequestMethod.POST)
-    public Object submitConfCode(@ModelAttribute("verCode") userEntity verCode, BindingResult bindingResult)
-            throws IOException, MessagingException {
+    public Object submitConfCode(@ModelAttribute("regconf") userEntity userForm, Model model) {
 
-        if (bindingResult.hasErrors()) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-        }
 
-        userEntity userInstance = userRepo.findByVerCode(verCode.getVerCode());
-        if (userInstance == null || !(userInstance.getVerCode().matches(verCode.getVerCode()))) {
+        userEntity userInstance = userRepo.findByVerCode(userForm.getVerCode());
+        if (userInstance == null || !(userInstance.getVerCode().matches(userForm.getVerCode()))) {
             System.out.println("Incorrect Verification Code");
             System.out.println(userInstance);
             return "regconf";
         }
-        if (!(userInstance == null || !(userInstance.getVerCode().matches(verCode.getVerCode())))) {
+        if (!(userInstance == null || !(userInstance.getVerCode().matches(userForm.getVerCode())))) {
             userInstance.setUserStatus("ACTIVE");
             userRepo.save(userInstance);
             System.out.println("Customer Account is now active");

@@ -14,15 +14,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
         integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
         crossorigin="anonymous"></script>
-    <link href="/css/navbar.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/navbar.css">
         <link rel="stylesheet" href="/css/global.css">
 
 </head>
 
-<body>
+<body style="background: aliceblue;">
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/"><img style="height: 50px; width:190px" src="../images/project_logo.png"
+            <a class="navbar-brand" href="/"><img style="height: 50px; width:190px" src="/images/project_logo.png"
                     alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -31,12 +31,6 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="container">
-                    <!-- <ul class="navbar-nav ml-auto"> -->
-
-                    <!-- <form action="/moviegallery" method="GET" role="form" class="d-flex">
-                               <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
-                               <button class="btn btn-success project-btn-primary" type="submit">Search</button>
-                           </form> -->
                     <ul class="navbar-nav" style="float: left">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
@@ -59,7 +53,7 @@
                                 Profile
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="./editprofile">
+                                <a class="dropdown-item" href="./editprofile.html">
                                     Profile</a>
                                 <a class="dropdown-item" href="./editpaymentinformation.html">Manage Payment Methods</a>
                                 <a class="dropdown-item" href="./editbiilinginformation.html">Edit Billing Information</a>
@@ -77,24 +71,49 @@
     <!-- navbarending -->
 
 
-    <div class="jumbotron text-center" style="margin-top: 150px;">
-        <h1 class="display-3">Thank you for signing up</h1>
-        <h3 class="display-6" style="margin-top: 1%;">A confirmation email has been sent for your account
-            verification.</h3>
-        <h3>Please Enter Your Verification Code</h3>
-        <form:form method="POST" modelAttribute="regconf">
-        <div class="form-floating mb-3">
-               <form:input type="text" class="form-control" id="verCode" name="verCode"
-               path="verCode" placeholder="Verification Code" />
-               <label for="verCode">Verification Code</label>
-        </div>
-        <div class="d-grid">
-             <form:button class="from-control" type="submit">Submit
-             </form:button>
+    <div class="container" style="margin-top:80px">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card border-0 shadow rounded-3 my-5">
+                    <div class="card-body p-4 p-sm-5">
 
+                    <form:form method="POST" modelAttribute="payForm">
+
+                        <h3 class="card-title">Payment Information</h3>
+
+                            <div class="form-floating mb-3">
+                                     <form:input type="text" class="form-control" id="cardType" name="cardType"
+                                             placeholder="Card Type" path="cardType" />
+                                               <label for="cardType">Card Type</label>
+                                                 </div>
+                                                    <div class="form-floating mb-3">
+                                                      <form:input type="text" class="form-control" id="cardNumber" name="cardNumber"
+                                                           placeholder="Card Number" path="cardNumber" />
+                                                           <label for="cardNumber">Card Number</label>
+                                                          </div>
+                                                          <div class="form-floating mb-3">
+                                                              <form:input type="text" class="form-control" id="expDate" name="expDate"
+                                                                placeholder="Expiration Date" path="expDate" />
+                                                                 <label for="expDate">Expiration Date</label>
+                                                          </div>
+                                                          <div class="form-floating mb-3">
+                                                             <form:input type="text" class="form-control" id="cvv" name="cvv"
+                                                               placeholder="cvv" path="cvv" />
+                                                               <label for="cvv">CVV</label>
+                                                               </div>
+
+
+                            <div class="d-grid">
+                                <input type="submit" value="Submit">
+                            </div>
+                            </form:form>
+                    </div>
+                </div>
+            </div>
         </div>
-        </form:form>
     </div>
+
+
 </body>
 
 </html>
