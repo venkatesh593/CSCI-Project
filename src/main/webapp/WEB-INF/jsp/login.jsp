@@ -53,11 +53,10 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Profile
+                            ${pageContext.request.userPrincipal.name}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="./editprofile.html">
-                                Profile</a>
+                            <a class="dropdown-item" href="/editprofile">Edit Profile</a>
                             <a class="dropdown-item" href="./editpaymentinformation.html">Manage Payment Methods</a>
                             <a class="dropdown-item" href="./editbiilinginformation.html">Edit Billing Information</a>
 
@@ -94,8 +93,11 @@
                             <c:if test="${param.error !=null}">
                                 <div class="alert alert-danger">${error}</div>
                             </c:if>
-                            <c:if test="${param.message !=null}">
+                            <c:if test="${not empty message}">
                                 <div class="alert alert-success">${message}</div>
+                            </c:if>
+                            <c:if test="${not empty reset}">
+                                <div class="alert alert-warning">${reset}</div>
                             </c:if>
 
                             <div class="form-floating mb-3">
@@ -109,7 +111,7 @@
                                 <label for="password">Password</label>
                             </div>
                             <div style="padding-bottom: 10px;">
-                                <a href="./forgotpassword.html" class="link-primary">Forgot Password</a>
+                                <a href="./forgotpassword" class="link-primary">Forgot Password</a>
                             </div>
                             <div class="d-grid">
                                 <form:button class="from-control" type="submit">Sign

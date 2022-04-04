@@ -13,8 +13,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
         integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
         crossorigin="anonymous"></script>
-<link rel="stylesheet" href="./css/navbar.css">
-<link rel="stylesheet" href="./css/global.css">
+<link rel="stylesheet" href="../css/navbar.css">
+<link rel="stylesheet" href="../css/global.css">
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container-fluid">
@@ -37,13 +37,13 @@
                         <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./moviegallery">Movies</a>
+                        <a class="nav-link active" aria-current="page" href="/moviegallery">Movies</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./registration">Sign Up</a>
+                        <a class="nav-link" href="/registration">Sign Up</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./login">Login</a>
+                        <a class="nav-link" href="/login">Login</a>
                     </li>
 
                 </ul>
@@ -51,16 +51,16 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
-                            Profile
+                            ${pageContext.request.userPrincipal.name}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="editprofile">
+                            <a class="dropdown-item" href="/editprofile">
                                 Profile</a>
                             <a class="dropdown-item" href="./editpaymentinformation.html">Manage Payment Methods</a>
                             <a class="dropdown-item" href="./editbiilinginformation.html">Edit Billing Information</a>
 
-                            <a class="dropdown-item" href="./logout">Logout</a>
-                            <a class="dropdown-item" href="./admin">Admin Portal</a>
+                            <a class="dropdown-item" href="./signout">Logout</a>
+                            <a class="dropdown-item" href="./adminMain.html">Admin Portal</a>
                         </div>
                     </li>
                 </ul>
@@ -77,7 +77,7 @@
 
 <head>
     <title>Forgot Password</title>
-    <link rel="stylesheet" href="/css/signupsignin.css">
+    <link rel="stylesheet" href="../css/signupsignin.css">
 </head>
 
 <body>
@@ -87,18 +87,22 @@
             <div class="card border-0 shadow rounded-3 my-5">
                 <div class="card-body p-4 p-sm-5">
                     <h3 class="card-title">Forgot Password</h3>
-                    <form method="post" action="${loginURL}">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="username" name="username"
-                                   placeholder="User Name" required>
-                            <label for="username">Enter Email</label>
-                        </div>
-                        <div class="d-grid">
-                            <button class="btn btn-primary btn-login project-btn-primary " type="submit">
-                                Submit
-                            </button>
-                        </div>
-                    </form>
+                    <c:if test="${param.error !=null}">
+                        <div class="alert alert-danger">${error}</div>
+                    </c:if>
+
+                    <form:form method="POST" modelAttribute="email">
+                    <div class="form-floating mb-3">
+                        <form:input type="text" class="form-control" id="email" name="email"
+                               placeholder="Email" path="email" />
+                        <label for="email">Enter Email</label>
+                    </div>
+                    <div class="d-grid">
+                        <form:button class="from-control btn btn-primary btn-login project-btn-primary " type="submit">
+                            Submit
+                        </form:button>
+                    </div>
+                    </form:form>
                 </div>
             </div>
         </div>
