@@ -56,7 +56,7 @@ public class ForgotPasswordController {
             sendmail(forgotEmail, tempPass);
             return "redirect:/login?forgot";
         } else {
-            return "/forgotpassword?error";
+            return "redirect:/forgotpassword?error";
         }
 
 //$2a$10$.Fi5wc/7BBZGKOdP91NeXOCABFCWPdS.NQXEyGnFXt2TMJYcpKXju

@@ -88,7 +88,7 @@
             <div class="card text-center shadow rounded-3" style="width: 18rem;">
                 <img src="/images/ManageMovies.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <a href="./manageMovies.html" class="btn btn-primary project-btn-primary"  >Manage Movies</a>
+                    <a href="./manageMovies.jsp" class="btn btn-primary project-btn-primary"  >Manage Movies</a>
                     <p class="card-text" >Here you are able to manage the information regarding a specific movie.</p>
                 </div>
             </div>
