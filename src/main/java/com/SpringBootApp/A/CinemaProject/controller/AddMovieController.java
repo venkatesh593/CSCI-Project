@@ -1,11 +1,14 @@
 package com.SpringBootApp.A.CinemaProject.controller;
 
 import com.SpringBootApp.A.CinemaProject.entity.movieEntity;
+import com.SpringBootApp.A.CinemaProject.entity.showEntity;
 import com.SpringBootApp.A.CinemaProject.entity.userEntity;
 import com.SpringBootApp.A.CinemaProject.repository.movieRepository;
+import com.SpringBootApp.A.CinemaProject.repository.showRepository;
 import com.SpringBootApp.A.CinemaProject.repository.userRepository;
 import com.SpringBootApp.A.CinemaProject.service.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -20,11 +23,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.mail.MessagingException;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Controller
 public class AddMovieController {
     @Autowired
     private movieRepository movieRepo;
+
+    @Autowired
+    private showRepository showRepo;
 
     @Autowired
     private SecurityService securityService;
@@ -39,8 +49,8 @@ public class AddMovieController {
     }
 
     @RequestMapping(value = "/addMovie", method = RequestMethod.POST)
-    public Object addMovie(@ModelAttribute("moveiForm") movieEntity movieForm, BindingResult bindingResult)
-        throws IOException, MessagingException {
+    public Object addMovie(@ModelAttribute("movieForm") movieEntity movieForm, BindingResult bindingResult)
+            throws IOException, MessagingException {
         if(bindingResult.hasErrors()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
@@ -58,6 +68,6 @@ public class AddMovieController {
 
         movieRepo.save(movieForm);
 
-        return "redirect:/manageMovies";
+        return "redirect:/addShow/" + movieForm.getTitle();
     }
 }

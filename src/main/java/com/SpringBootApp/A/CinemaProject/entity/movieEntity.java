@@ -25,6 +25,17 @@ public class movieEntity {
     private String trailerPicture;
     private String trailerVideo;
 
+    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+    private Set<showEntity> shows = new HashSet<>();
+
+    public Set<showEntity> getShows() {
+        return shows;
+    }
+
+    public void setShows(Set<showEntity> shows) {
+        this.shows = shows;
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }
