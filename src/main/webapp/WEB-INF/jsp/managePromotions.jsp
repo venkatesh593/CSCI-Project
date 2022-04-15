@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <style>
     .navbar {
        background-color: deepskyblue;
@@ -120,72 +122,29 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">15% Off All Tickets</th>
-                        <td>15OFF</td>
-                        <td>02/28/2022</td>
-                        <td>
-                          <a href="./editPromotion.html">
-                            <img src="../images/pencil.svg">
-                          </a>
-                        </td>
-                        <td class="align-middle">
-                          <a href="./adminMain.html">
-                            <img src="../images/x-square.svg">
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Buy one Adult Ticket get a Child Ticket free</th>
-                        <td>BUYONEGETONE</td>
-                        <td>02/28/2022</td>
-                        <td>
-                          <a href="./editPromotion.html">
-                            <img src="../images/pencil.svg">
-                          </a>
-                        </td>
-                        <td class="align-middle">
-                          <a href="./adminMain.html">
-                            <img src="../images/x-square.svg">
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2 Tickets for $12</th>
-                        <td>2FOR12</td>
-                        <td>02/28/2022</td>
-                        <td>
-                          <a href="./editPromotion.html">
-                            <img src="../images/pencil.svg">
-                          </a>
-                        </td>
-                        <td class="align-middle">
-                          <a href="./adminMain.html">
-                            <img src="../images/x-square.svg">
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">20% Off Adult Tickets</th>
-                        <td>20ADULT</td>
-                        <td>02/28/2022</td>
-                        <td>
-                          <a href="./editPromotion.html">
-                            <img src="../images/pencil.svg">
-                          </a>
-                        </td>
-                        <td class="align-middle">
-                          <a href="./adminMain.html">
-                            <img src="../images/x-square.svg">
-                          </a>
-                        </td>
-                      </tr>
+                        <c:forEach var="promotion" items="${promos}">
+                          <tr>
+                            <th scope="row">${promotion.promoName}</th>
+                            <td>${promotion.promoCode}</td>
+                            <td>${promotion.expDate}</td>
+                            <td>
+                              <a href="./editPromotion.html">
+                                <img src="../images/pencil.svg">
+                              </a>
+                            </td>
+                            <td class="align-middle">
+                              <a href="./adminMain.html">
+                                <img src="../images/x-square.svg">
+                              </a>
+                            </td>
+                          </tr>
+                        </c:forEach>
                     </tbody>
                   </table>
                 </div>
                 <div class="row justify-content-center" style="padding-top:25px">
                     <div class="col-8 text-center d-grid gap-1" style="width: 300px">
-                        <a href="./addPromotion.html" class="btn btn-block btn-lg btn-primary project-btn-primary">Add New Promotion</a>
+                        <a href="./addPromotion" class="btn btn-block btn-lg btn-primary project-btn-primary">Add New Promotion</a>
                     </div>
                 </div>
             </div>

@@ -106,7 +106,7 @@
             <div class="card text-center shadow rounded-3" style="width: 18rem;">
                 <img src="/images/ManagePromotions.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <a href="./managePromotions.html" class="btn btn-primary project-btn-primary">Manage Promotions</a>
+                    <a href="./managePromotions.jsp" class="btn btn-primary project-btn-primary">Manage Promotions</a>
                     <p class="card-text" >Here you can add and update promotions to apply to the ticket checkout process. </p>
                 </div>
             </div>
