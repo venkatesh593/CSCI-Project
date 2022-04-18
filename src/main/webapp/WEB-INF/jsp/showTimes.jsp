@@ -30,16 +30,16 @@
                        </form> -->
                 <ul class="navbar-nav" style="float: left">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./moviegallery.html">Movies</a>
+                        <a class="nav-link active" aria-current="page" href="/moviegallery">Movies</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./signup.html">Sign Up</a>
+                        <a class="nav-link" href="/signup">Sign Up</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./signin.html">Login</a>
+                        <a class="nav-link" href="/signin">Login</a>
                     </li>
 
                 </ul>
@@ -50,13 +50,13 @@
                             Profile
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="./editprofile.html">
+                            <a class="dropdown-item" href="/editprofile">
                                 Profile</a>
-                            <a class="dropdown-item" href="./editpaymentinformation.html">Manage Payment Methods</a>
-                            <a class="dropdown-item" href="./editbiilinginformation.html">Edit Billing Information</a>
+                            <a class="dropdown-item" href="/editpaymentinformation">Manage Payment Methods</a>
+                            <a class="dropdown-item" href="/editbiilinginformation">Edit Billing Information</a>
 
-                            <a class="dropdown-item" href="./signout">Logout</a>
-                            <a class="dropdown-item" href="./adminMain.html">Admin Portal</a>
+                            <a class="dropdown-item" href="/signout">Logout</a>
+                            <a class="dropdown-item" href="/adminMain">Admin Portal</a>
                         </div>
                     </li>
                 </ul>
@@ -84,8 +84,7 @@
                         <form:form method="POST" modelAttribute="timesForm">
                             <h3 class="display-4 text-center">Show times</h3><br>
                             <p class="h3 text-center">Movie: ${timesForm.title}</p>
-                            <input type="hidden" id="${row.movietitle}" name="movietitle" value="${row.movietitle}"
-                                class="form-control" path="ticketType" />
+
                             <br>
                             <table class="table ">
                                 <thead>
@@ -99,11 +98,10 @@
                                 <tbody>
                                 <c:forEach var="show" items="${timesForm.shows}">
                                     <tr style="text-align: center;">
-                                        <td><form:input class="form-check-input" type="checkbox" value="true"
-                                                id="flexCheckDefault"></td>
+                                        <td><input class="form-check-input" type="checkbox" value=""
+                                                ></td>
                                         <td scope="row">${show.localDate}</td>
-                                        <form:input type="hidden" id="${row.date}" name="movietitle" value="${row.date}"
-                                            class="form-control" path="date" />
+
                                         <td>
                                             <p>${show.localTime}</p>
                                         </td>

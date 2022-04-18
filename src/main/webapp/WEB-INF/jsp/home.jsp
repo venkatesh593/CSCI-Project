@@ -26,7 +26,7 @@
         window.open('https://www.youtube.com/watch?v=0LHxvxdRnYc', '_blank')
     }
     function redirectToExtern() {
-        window.location.href = './showtimes'
+        window.location.href = '/showtimes'
     }
 </script>
 <body>
@@ -49,16 +49,16 @@
                                </form> -->
                         <ul class="navbar-nav" style="float: left">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="./home">Home</a>
+                                <a class="nav-link active" aria-current="page" href="/home">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="./moviegallery">Movies</a>
+                                <a class="nav-link active" aria-current="page" href="/moviegallery">Movies</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./signup">Sign Up</a>
+                                <a class="nav-link" href="/signup">Sign Up</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./signin">Login</a>
+                                <a class="nav-link" href="/signin">Login</a>
                             </li>
 
                         </ul>
@@ -138,16 +138,20 @@
                                 <div class="overlay-video"></div>
                                 <img class="image-th" src="../images/gallery/${movie.trailerPicture}" />
                                 <div class="image-hover">
+                                <button class="btn btn-primary btn-login fw-bold project-btn-primary"
+                                      onclick="window.location.href='/movieinfo/${movie.title}'" type="submit">Movie Info
+                                </button>
                                     <button type="button" class="project-btn-primary btn btn-primary" data-toggle="modal" data-target="#${movie.movie_id}Modal">
                                         Watch Trailer
                                     </button>
-                                    <button onclick="redirectToExtern()"
+                                    <button onclick="window.location.href='/showTimes/${movie.title}'"
                                         class="btn btn-primary btn-login fw-bold project-btn-primary" type="submit">Book
                                         Tickets
                                     </button>
                                 </div>
                                 <!-- <img class="image-hover" src="./assets/img/Play icon.svg" /> -->
                                 <h3>${movie.title}</h3>
+                                <h3>${movie.filmRating}</h3>
                             </div>
 
                             </c:forEach>
@@ -169,16 +173,20 @@
                                           <div class="overlay-video"></div>
                                               <img class="image-th" src="../images/gallery/${movie.trailerPicture}" />
                                                   <div class="image-hover">
+                                                  <button class="btn btn-primary btn-login fw-bold project-btn-primary"
+                                                       onclick="window.location.href='/movieinfo/${movie.title}'" type="submit">Movie Info
+                                                  </button>
                                                       <button type="button" class="project-btn-primary btn btn-primary" data-toggle="modal" data-target="#${movie.movie_id}Modal">
                                                           Watch Trailer
                                                       </button>
-                                                  <button onclick="redirectToExtern()"
+                                                  <button onclick="window.location.href='/showTimes/${movie.title}'"
                                                      class="btn btn-primary btn-login fw-bold project-btn-primary" type="submit">Book
                                                       Tickets
                                                   </button>
                                            </div>
                                              <!-- <img class="image-hover" src="./assets/img/Play icon.svg" /> -->
                                         <h3>${movie.title}</h3>
+                                        <h3>${movie.filmRating}</h3>
                                     </div>
 
                                 </c:forEach>

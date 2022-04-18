@@ -31,7 +31,7 @@ Support: https://sellix.io/fr0zen/contact
 
 
 <head>
-    <link rel="stylesheet" href="./CSS/moviegallery.css">
+    <link rel="stylesheet" href="../css/moviegallery.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
@@ -66,11 +66,11 @@ Support: https://sellix.io/fr0zen/contact
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page"
-                           href="./home">Home</a>
+                           href="/home">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page"
-                           href="./moviegallery">Movies</a>
+                           href="/moviegallery">Movies</a>
                     </li>
                     <form:form  method="POST" modelAttribute="title" class="d-flex">
                         <form:input class="form-control" type="text" name="title" id="title"
@@ -113,9 +113,13 @@ Support: https://sellix.io/fr0zen/contact
             </div>
             <p>Test-drive a dashboard and experience InAppBI in action.</p>
         </div> -->
+
         <div class="row flex">
+
             <div class="col-md-12 inherit">
+
                 <div class="video-wrapper">
+
                     <c:forEach var="movie" items="${searchMovies}">
 
                        <div class="thumbnail-image">
@@ -135,10 +139,13 @@ Support: https://sellix.io/fr0zen/contact
                           </div>
                           <!-- <img class="image-hover" src="./assets/img/Play icon.svg" /> -->
                           <h3>${movie.title}</h3>
+                          <h3>${movie.filmRating}</h3>
                        </div>
 
                     </c:forEach>
-
+                <c:if test="${param.error !=null}">
+                        <div class="alert alert-danger">${error}</div>
+                </c:if>
                 </div>
             </div>
         </div>

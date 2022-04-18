@@ -42,6 +42,8 @@ public class GalleryController {
     public String showSearchPage(@PathVariable("movieTitle") String title, ModelMap model) {
         model.addAttribute("searchMovies", movieRepo.findAllByTitle(title));
         model.addAttribute("title", new movieEntity());
+        if (movieRepo.findAllByTitle(title).isEmpty())
+            model.addAttribute("error", "This movie does not exist");
         return "moviegallery";
     }
 
