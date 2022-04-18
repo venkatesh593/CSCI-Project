@@ -17,7 +17,7 @@ public interface movieRepository extends CrudRepository<movieEntity, Long> {
                     "WHERE movies.movie_id IN (" +
                     "   SELECT shows.movie_id" +
                     "   FROM shows" +
-                    "   WHERE shows.local_Date = '2022-04-16')",
+                    "   WHERE shows.local_Date = CURRENT_DATE)",
             nativeQuery = true
     )
     Collection<movieEntity> findAllPlayingMovies();
@@ -27,7 +27,7 @@ public interface movieRepository extends CrudRepository<movieEntity, Long> {
                     "WHERE movies.movie_id IN (" +
                     "   SELECT shows.movie_id" +
                     "   FROM shows" +
-                    "   WHERE shows.local_Date > '2022-04-16')",
+                    "   WHERE shows.local_Date > CURRENT_DATE)",
             nativeQuery = true
     )
     Collection<movieEntity> findAllUpcomingMovies();

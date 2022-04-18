@@ -30,15 +30,4 @@ public class MovieInfoController {
         model.addAttribute("browseMovie", movieRepo.findByTitle(title));
         return "movieinfo";
     }
-
-    @RequestMapping(value = "/movieinfo/{movieTitle}", method = RequestMethod.POST)
-    public Object searchMoviesAgain(@PathVariable("movieTitle") String title, BindingResult bindingResult)
-            throws IOException, MessagingException {
-        if(bindingResult.hasErrors()) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-        }
-
-
-        return "redirect:/moviegallery/"+title;
-    }
 }
