@@ -32,9 +32,14 @@ public class GalleryController {
     //private SecurityService securityService;
 
     @RequestMapping(value = "/moviegallery", method = RequestMethod.GET)
-    public String showGalleryPage(ModelMap model) {
+    public String showGalleryPage(String error, ModelMap model) {
         model.addAttribute("searchMovies", movieRepo.findAll());
         model.addAttribute("title", new movieEntity());
+
+        if(error != null) {
+            model.addAttribute("error", "This movie does not exist, please try again");
+        }
+
         return "moviegallery";
     }
 
@@ -43,7 +48,7 @@ public class GalleryController {
         model.addAttribute("searchMovies", movieRepo.findAllByTitle(title));
         model.addAttribute("title", new movieEntity());
         if (movieRepo.findAllByTitle(title).isEmpty())
-            model.addAttribute("error", "This movie does not exist");
+            return "redirect:/moviegallery?error";
         return "moviegallery";
     }
 

@@ -133,8 +133,10 @@ Support: https://sellix.io/fr0zen/contact
 
         <div class="row flex">
 
-            <div class="col-md-12 inherit">
-
+            <div class="col-md-12 inherit" style="padding-top: 50px; padding-bottom: 50px;">
+                <c:if test="${param.error !=null}">
+                    <div class="alert alert-danger">${error}</div>
+                </c:if>
                 <div class="video-wrapper">
 
                     <c:forEach var="movie" items="${searchMovies}">
