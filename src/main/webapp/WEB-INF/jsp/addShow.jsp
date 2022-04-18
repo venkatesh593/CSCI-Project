@@ -110,12 +110,12 @@
                     <form:form method="POST" modelAttribute="showForm">
 
                         <div class="form-floating mb-3">
-                            <form:input type="text" class="form-control" id="localDate" name="localDate"
+                            <form:input type="date" class="form-control" id="localDate" name="localDate"
                                         placeholder="Local Date" path="localDate"/>
                             <label for="localDate">Show Date</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <form:input type="text" class="form-control" id="localTime" name="localTime"
+                            <form:input type="time" step="300" class="form-control" id="localTime" name="localTime"
                                         placeholder="Local Time" path="localTime"/>
                             <label for="localTime">Show Time</label>
                         </div>
