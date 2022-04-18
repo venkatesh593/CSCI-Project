@@ -1,5 +1,7 @@
 package com.SpringBootApp.A.CinemaProject.entity;
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashSet;
@@ -13,16 +15,25 @@ public class movieEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long movie_id;
 
+    @NotEmpty
     private String title;
     private double duration;
+    @NotEmpty
     private String category;
+    @NotEmpty
     private String filmRating;
+    @NotEmpty
     private String cast;
+    @NotEmpty
     private String director;
+    @NotEmpty
     private String producer;
+    @NotEmpty
     private String synopsis;
     private String reviews;
+    @NotEmpty
     private String trailerPicture;
+    @NotEmpty
     private String trailerVideo;
 
     @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
