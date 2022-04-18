@@ -47,13 +47,19 @@ public class GalleryController {
         return "moviegallery";
     }
 
+    @RequestMapping(value = "/moviegallery/category/{movieCategory}", method = RequestMethod.GET)
+    public String showSearchCategory(@PathVariable("movieCategory") String category, ModelMap model) {
+        model.addAttribute("searchMovies", movieRepo.findAllByCategory(category));
+        model.addAttribute("title", new movieEntity());
+        return "moviegallery";
+    }
+
     @RequestMapping(value = "/moviegallery", method = RequestMethod.POST)
     public Object searchMovies( @ModelAttribute("title") String title, BindingResult bindingResult)
             throws IOException, MessagingException {
         if(bindingResult.hasErrors()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
-
 
         return "redirect:/moviegallery/"+title;
     }
@@ -65,7 +71,15 @@ public class GalleryController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
 
+        return "redirect:/moviegallery/"+title;
+    }
 
+    @RequestMapping(value = "/moviegallery/category/{movieCategory}", method = RequestMethod.POST)
+    public Object searchMoviesCategoryAgain( @ModelAttribute("title") String title, BindingResult bindingResult)
+            throws IOException, MessagingException {
+        if(bindingResult.hasErrors()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
         return "redirect:/moviegallery/"+title;
     }
 }

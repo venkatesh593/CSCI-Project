@@ -3,7 +3,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/"><img style="height: 50px; width:190px" src="../images/project_logo.png"
+        <a class="navbar-brand" href="/"><img style="height: 50px; width:190px" src="/images/project_logo.png"
                 alt=""></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -20,16 +20,16 @@
                    </form> -->
                 <ul class="navbar-nav" style="float: left">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./moviegallery">Movies</a>
+                        <a class="nav-link active" aria-current="page" href="/moviegallery">Movies</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./registration">Sign Up</a>
+                        <a class="nav-link" href="/registration">Sign Up</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./login">Login</a>
+                        <a class="nav-link" href="/login">Login</a>
                     </li>
 
                 </ul>
@@ -40,13 +40,13 @@
                             Profile
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="./editprofile">
+                            <a class="dropdown-item" href="/editprofile">
                                 Profile</a>
-                            <a class="dropdown-item" href="./editpaymentinformation.html">Manage Payment Methods</a>
-                            <a class="dropdown-item" href="./editbiilinginformation.html">Edit Billing Information</a>
+                            <a class="dropdown-item" href="/editpaymentinformation.html">Manage Payment Methods</a>
+                            <a class="dropdown-item" href="/editbiilinginformation.html">Edit Billing Information</a>
 
-                            <a class="dropdown-item" href="./logout">Logout</a>
-                            <a class="dropdown-item" href="./admin">Admin Portal</a>
+                            <a class="dropdown-item" href="/logout">Logout</a>
+                            <a class="dropdown-item" href="/admin">Admin Portal</a>
                         </div>
                     </li>
                 </ul>
@@ -77,9 +77,9 @@
             margin-top: 5%;
         }
     </style>
-    <link rel="stylesheet" href="../css/signupsignin.css">
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="/css/signupsignin.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/global.css">
 
 </head>
 <div class="container py-5">

@@ -31,7 +31,7 @@ Support: https://sellix.io/fr0zen/contact
 
 
 <head>
-    <link rel="stylesheet" href="../css/moviegallery.css">
+    <link rel="stylesheet" href="/css/moviegallery.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
@@ -55,7 +55,7 @@ Support: https://sellix.io/fr0zen/contact
     <div class="container-fluid">
         <a class="navbar-brand" href="/"><img
                 style="height: 50px; width:190px"
-                src="../images/project_logo.png"
+                src="/images/project_logo.png"
                 alt=""></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,6 +72,23 @@ Support: https://sellix.io/fr0zen/contact
                         <a class="nav-link active" aria-current="page"
                            href="/moviegallery">Movies</a>
                     </li>
+
+                    <ul class="navbar-nav" style="float: right">
+                        <li class="nav-item dropdown">
+                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    Category
+                             </a>
+                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                   <a class="dropdown-item" href="/moviegallery/category/Action">
+                                   Action</a>
+                                   <a class="dropdown-item" href="/moviegallery/category/Comedy">Comedy</a>
+                                   <a class="dropdown-item" href="/moviegallery/category/Drama">Drama</a>
+                                   <a class="dropdown-item" href="/moviegallery/category/Romance">Romance</a>
+                             </div>
+                        </li>
+                    </ul>
+
                     <form:form  method="POST" modelAttribute="title" class="d-flex">
                         <form:input class="form-control" type="text" name="title" id="title"
                         placeholder="title" path="title" />
@@ -90,7 +107,7 @@ Support: https://sellix.io/fr0zen/contact
                                 ${pageContext.request.userPrincipal.name}
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="./editprofile/${pageContext.request.userPrincipal.name}">
+                                <a class="dropdown-item" href="/editprofile/${pageContext.request.userPrincipal.name}">
                                     Profile</a>
                                 <a class="dropdown-item" href="#">Manage Payment Methods</a>
                                 <a class="dropdown-item" href="#">Edit Billing Information</a>
@@ -124,7 +141,7 @@ Support: https://sellix.io/fr0zen/contact
 
                        <div class="thumbnail-image">
                           <div class="overlay-video"></div>
-                          <img class="image-th" src="../images/gallery/${movie.trailerPicture}" />
+                          <img class="image-th" src="/images/gallery/${movie.trailerPicture}" />
                           <div class="image-hover">
                               <button class="btn btn-primary btn-login fw-bold project-btn-primary"
                                      onclick="window.location.href='/movieinfo/${movie.title}'" type="submit">Movie Info
