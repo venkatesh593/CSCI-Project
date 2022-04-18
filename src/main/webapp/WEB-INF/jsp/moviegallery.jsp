@@ -113,7 +113,7 @@ Support: https://sellix.io/fr0zen/contact
                                 <a class="dropdown-item" href="#">Edit Billing Information</a>
                                 <a class="dropdown-item" href="#">Order History</a>
                                 <a class="dropdown-item"
-                                   href="./logout">Logout</a>
+                                   href="/logout">Logout</a>
                             </div>
                         </li>
                     </ul>
