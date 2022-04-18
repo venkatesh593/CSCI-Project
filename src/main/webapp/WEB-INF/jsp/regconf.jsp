@@ -39,16 +39,16 @@
                            </form> -->
                     <ul class="navbar-nav" style="float: left">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
+                            <a class="nav-link active" aria-current="page" href="/home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./moviegallery">Movies</a>
+                            <a class="nav-link active" aria-current="page" href="/moviegallery">Movies</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./registration">Sign Up</a>
+                            <a class="nav-link" href="/registration">Sign Up</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./login">Login</a>
+                            <a class="nav-link" href="/login">Login</a>
                         </li>
 
                     </ul>
@@ -59,13 +59,13 @@
                                 Profile
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="./editprofile">
+                                <a class="dropdown-item" href="/editprofile">
                                     Profile</a>
-                                <a class="dropdown-item" href="./editpaymentinformation.html">Manage Payment Methods</a>
-                                <a class="dropdown-item" href="./editbiilinginformation.html">Edit Billing Information</a>
+                                <a class="dropdown-item" href="/editpaymentinformation">Manage Payment Methods</a>
+                                <a class="dropdown-item" href="/editbiilinginformation">Edit Billing Information</a>
 
-                                <a class="dropdown-item" href="./logout">Logout</a>
-                                <a class="dropdown-item" href="./admin">Admin Portal</a>
+                                <a class="dropdown-item" href="/logout">Logout</a>
+                                <a class="dropdown-item" href="/admin">Admin Portal</a>
                             </div>
                         </li>
                     </ul>

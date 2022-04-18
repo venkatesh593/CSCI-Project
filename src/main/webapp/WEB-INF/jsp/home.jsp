@@ -55,10 +55,10 @@
                                 <a class="nav-link active" aria-current="page" href="/moviegallery">Movies</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/signup">Sign Up</a>
+                                <a class="nav-link" href="/registration">Sign Up</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/signin">Login</a>
+                                <a class="nav-link" href="/login">Login</a>
                             </li>
 
                         </ul>
@@ -69,13 +69,13 @@
                                     Profile
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="./editprofile">
+                                    <a class="dropdown-item" href="/editprofile">
                                         Profile</a>
-                                    <a class="dropdown-item" href="./editpaymentinformation">Manage Payment Methods</a>
-                                    <a class="dropdown-item" href="./editbiilinginformation">Edit Billing Information</a>
+                                    <a class="dropdown-item" href="/editpaycard">Manage Payment Methods</a>
+                                    <a class="dropdown-item" href="/editbiilinginformation">Edit Billing Information</a>
 
-                                    <a class="dropdown-item" href="./signin">Logout</a>
-                                    <a class="dropdown-item" href="./adminMain">Admin Portal</a>
+                                    <a class="dropdown-item" href="/login">Logout</a>
+                                    <a class="dropdown-item" href="/admin">Admin Portal</a>
                                 </div>
                             </li>
                         </ul>

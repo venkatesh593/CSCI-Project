@@ -68,16 +68,16 @@
                          </form> -->
                   <ul class="navbar-nav" style="float: left">
                       <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/home.html">Home</a>
+                          <a class="nav-link active" aria-current="page" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/home">Home</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/moviegallery.html">Movies</a>
+                          <a class="nav-link active" aria-current="page" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/moviegallery">Movies</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/signup.html">Sign Up</a>
+                          <a class="nav-link" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/registration">Sign Up</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/signin.html">Login</a>
+                          <a class="nav-link" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/login">Login</a>
                       </li>
 
                   </ul>

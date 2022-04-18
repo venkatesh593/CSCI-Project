@@ -96,10 +96,10 @@ Support: https://sellix.io/fr0zen/contact
                     </form:form>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="./registration">Sign Up</a>
+                            <a class="nav-link" href="/registration">Sign Up</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./login">Login</a>
+                            <a class="nav-link" href="/login">Login</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
