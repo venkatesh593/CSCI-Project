@@ -88,50 +88,50 @@
             <div class="bg-white rounded-lg shadow-lg rounded-3 p-5">
                 <div class="tab-content">
                     <div id="nav-tab-card" class="tab-pane fade show active">
-                        <form:form method="POST" modelAttribute="browseMovie">
+
                             <h3 class="display-4 text-center">Movie Info</h3>
                             <br>
                             <div class="mb-3">
                                 <label for="title">Title</label><br>
-                                <form:input type="text" class="form-control" id="title" name="title" value="${browseMovie.title}"
+                                <input type="text" class="form-control" id="title" name="title" value="${browseMovie.title}"
                                    readonly="true" path="title" />
                             </div>
                             <div class="mb-3">
                                 <label for="category">Category</label><br>
-                                <form:input type="text" class="form-control" id="category" name="category" value="${browseMovie.category}"
+                                <input type="text" class="form-control" id="category" name="category" value="${browseMovie.category}"
                                   readonly="true"  path="category" />
                             </div>
                             <div class="mb-3">
                                <label for="filmRating">Film Rating</label><br>
-                               <form:input type="text" class="form-control" id="filmRating" name="filmRating" value="${browseMovie.filmRating}"
+                               <input type="text" class="form-control" id="filmRating" name="filmRating" value="${browseMovie.filmRating}"
                                    readonly="true" path="filmRating" />
                             </div>
                             <div class="mb-3">
                                 <label for="cast">Cast</label><br>
-                                <form:input type="text" class="form-control" id="cast" name="cast" value="${browseMovie.cast}"
+                                <input type="text" class="form-control" id="cast" name="cast" value="${browseMovie.cast}"
                                     readonly="true" path="cast" />
                             </div>
                             <div class="mb-3">
                                 <label for="director">Director</label><br>
-                                <form:input type="text" class="form-control" id="director" name="director" value="${browseMovie.director}"
+                                <input type="text" class="form-control" id="director" name="director" value="${browseMovie.director}"
                                     readonly="true" path="director" />
                             </div>
 
                             <div class="mb-3">
                                  <label for="producer">Producer</label>
-                                   <form:input type="text" id="producer" class="form-control" name="producer" value="${browseMovie.producer}"
+                                   <input type="text" id="producer" class="form-control" name="producer" value="${browseMovie.producer}"
                                         readonly="true" path = "producer" />
                                     </div>
 
                             <div class="mb-3">
                                 <label for="synopsis">Synopsis</label><br>
-                                <form:input type="text" class="form-control" id="synopsis" name="synopsis" value="${browseMovie.synopsis}"
+                                <input type="text" class="form-control" id="synopsis" name="synopsis" value="${browseMovie.synopsis}"
                                     readonly="true" path="synopsis" />
                             </div>
                             <div class="mb-3">
                                 <c:forEach var="row" items="${result2.rows}">
                                     <label for="reviews">Reviews</label><br>
-                                    <form:input type="text" class="form-control" id="reviews" name="reviews" value="${browseMovie.reviews}"
+                                    <input type="text" class="form-control" id="reviews" name="reviews" value="${browseMovie.reviews}"
                                         readonly="true" path="reviews" />
                                 </c:forEach>
                             </div>
@@ -162,10 +162,12 @@
 
                             <br>
                             <div class="d-grid">
-                                <form:button class="btn btn-success btn-login project-btn-primary " type="submit">Book Movie
-                                </form:button>
+                                <button onclick="window.location.href='/showTimes/${browseMovie.title}'"
+                                       class="btn btn-primary btn-login fw-bold project-btn-primary" type="submit">
+                                       Book Tickets
+                                </button>
                             </div>
-                        </form:form>
+                        
                     </div>
                 </div>
             </div>
