@@ -112,46 +112,63 @@
                         <div class="form-floating mb-3">
                             <form:input type="text" class="form-control" id="title" name="title"
                                 placeholder="Movie Title" path="title"/>
+                            <form:errors path="title" cssClass="alert alert-danger errors" element="div"></form:errors>
                             <label for="title">Movie Title</label>
                         </div>
                         <div class="form-floating mb-3">
                             <form:input type="text" class="form-control" id="director" name="director"
                                 placeholder="Director" path="director"/>
+                            <form:errors path="director" cssClass="alert alert-danger errors" element="div"></form:errors>
                             <label for="director">Director</label>
                         </div>
                         <div class="form-floating mb-3">
                             <form:input type="text" class="form-control" id="producer" name="producer"
                                    placeholder="Producer" path="producer"/>
+                            <form:errors path="producer" cssClass="alert alert-danger errors" element="div"></form:errors>
                             <label for="producer">Producer</label>
                         </div>
                         <div class="form-floating mb-3">
                             <form:input type="text" class="form-control" id="category" name="category"
                                 placeholder="Category" path="category"/>
+                            <form:errors path="category" cssClass="alert alert-danger errors" element="div"></form:errors>
                             <label for="category">Category</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <form:input type="textarea" rows="3" class="form-control" id="cast" name="cast"
+                            <form:textarea type="text" rows="3" style="height:auto" class="form-control" id="cast" name="cast"
                                 placeholder="Cast" path="cast"/>
+                            <form:errors path="cast" cssClass="alert alert-danger errors" element="div"></form:errors>
                             <label for="cast">Cast</label>
                         </div>
+
+                        <div class="form-floating mb-3">
+                              <form:textarea type="text" rows="3" class="form-control" style="height:auto" id="reviews" name="reviews"
+                                          placeholder="Reviews" path="reviews"/>
+                              <form:errors path="reviews" cssClass="alert alert-danger errors" element="div"></form:errors>
+                              <label for="reviews">Reviews</label>
+                        </div>
+
                         <h6>Poster</h6>
                         <div class="form-floating mb-3">
                             <form:input type="test" class="form-control-file" id="trailerPicture" name="trailerPicture"
                                 placeholder="trailerImage" path="trailerPicture"/>
+                            <form:errors path="trailerPicture" cssClass="alert alert-danger errors" element="div"></form:errors>
                         </div>
                         <div class="form-floating mb-3">
                             <form:input type="text" class="form-control" id="trailerVideo" name="trailerVideo"
                                 placeholder="" path="trailerVideo"/>
+                            <form:errors path="trailerPicture" cssClass="alert alert-danger errors" element="div"></form:errors>
                             <label for="trailerVideo">Trailer</label>
                         </div>
                         <div class="form-floating mb-3">
                             <form:textarea type="text" rows="4" style="height:auto" class="form-control" id="synopsis"
                                            name="synopsis" placeholder="synopsis" path="synopsis"/>
+                            <form:errors path="trailerVideo" cssClass="alert alert-danger errors" element="div"></form:errors>
                             <label for="synopsis">Synopsis</label>
                         </div>
                         <div class="form-floating mb-3">
                             <form:input type="text" class="form-control" id="filmRating" name="filmRating"
                                 placeholder="Rating" path="filmRating"/>
+                            <form:errors path="synopsis" cssClass="alert alert-danger errors" element="div"></form:errors>
                             <label for="filmRating">Rating</label>
                         </div>
 

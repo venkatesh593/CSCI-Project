@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.mail.MessagingException;
+import javax.validation.Valid;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -49,25 +50,27 @@ public class AddMovieController {
     }
 
     @RequestMapping(value = "/addMovie", method = RequestMethod.POST)
-    public Object addMovie(@ModelAttribute("movieForm") movieEntity movieForm, BindingResult bindingResult)
+    public Object addMovie(@Valid @ModelAttribute("movieForm") movieEntity movieForm, BindingResult bindingResult)
             throws IOException, MessagingException {
         if(bindingResult.hasErrors()) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+            return "/addMovie";
+
+        } else {
+            movieForm.setTitle(movieForm.getTitle());
+            movieForm.setCast(movieForm.getCast());
+            movieForm.setCategory(movieForm.getCategory());
+            movieForm.setSynopsis(movieForm.getSynopsis());
+            movieForm.setDirector(movieForm.getDirector());
+            movieForm.setDuration(movieForm.getDuration());
+            movieForm.setFilmRating(movieForm.getFilmRating());
+            movieForm.setProducer(movieForm.getProducer());
+            movieForm.setReviews(movieForm.getReviews());
+            movieForm.setTrailerPicture(movieForm.getTrailerPicture());
+            movieForm.setTrailerVideo(movieForm.getTrailerVideo());
+
+            movieRepo.save(movieForm);
+
+            return "redirect:/addShow/" + movieForm.getTitle();
         }
-        movieForm.setTitle(movieForm.getTitle());
-        movieForm.setCast(movieForm.getCast());
-        movieForm.setCategory(movieForm.getCategory());
-        movieForm.setSynopsis(movieForm.getSynopsis());
-        movieForm.setDirector(movieForm.getDirector());
-        movieForm.setDuration(movieForm.getDuration());
-        movieForm.setFilmRating(movieForm.getFilmRating());
-        movieForm.setProducer(movieForm.getProducer());
-        movieForm.setReviews(movieForm.getReviews());
-        movieForm.setTrailerPicture(movieForm.getTrailerPicture());
-        movieForm.setTrailerVideo(movieForm.getTrailerVideo());
-
-        movieRepo.save(movieForm);
-
-        return "redirect:/addShow/" + movieForm.getTitle();
     }
 }
