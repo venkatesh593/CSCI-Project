@@ -31,4 +31,10 @@ public interface movieRepository extends CrudRepository<movieEntity, Long> {
             nativeQuery = true
     )
     Collection<movieEntity> findAllUpcomingMovies();
+
+
+
+    Collection<movieEntity> findAllByTitle(String title);
+
+    Collection<movieEntity> findAllByCategory(String category);
 }

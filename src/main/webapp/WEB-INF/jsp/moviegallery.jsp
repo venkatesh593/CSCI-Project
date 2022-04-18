@@ -1,5 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!--
 Template Name: Moviewp
@@ -44,8 +44,9 @@ Support: https://sellix.io/fr0zen/contact
             window.open('https://www.youtube.com/watch?v=0LHxvxdRnYc', '_blank')
         }
         function redirectToExtern() {
-            window.location.href = './selectseats.html'
+            window.location.href = '/selectseats'
         }
+
     </script>
 
 </head>
@@ -65,16 +66,17 @@ Support: https://sellix.io/fr0zen/contact
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page"
-                           href="./home.html">Home</a>
+                           href="./home">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page"
                            href="./moviegallery">Movies</a>
                     </li>
-                    <form action="/moviegallery" method="GET" role="form" class="d-flex">
-                        <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-success project-btn-primary" type="submit">Search</button>
-                    </form>
+                    <form:form  method="POST" modelAttribute="title" class="d-flex">
+                        <form:input class="form-control" type="text" name="title" id="title"
+                        placeholder="title" path="title" />
+                        <form:button class="form-control" type="submit">Search</form:button>
+                    </form:form>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="./registration">Sign Up</a>
@@ -114,78 +116,29 @@ Support: https://sellix.io/fr0zen/contact
         <div class="row flex">
             <div class="col-md-12 inherit">
                 <div class="video-wrapper">
-                    <div  class="thumbnail-image">
-                        <div class="overlay-video"></div>
-                        <img class="image-th" src="../images/gallery/khiladi.PNG" />
-                        <div class="image-hover">
-                            <button class="btn btn-primary btn-login fw-bold project-btn-primary" onclick="redirectToExternal()" type="submit">Watch Trailer
-                            </button>
-                            <button onclick="redirectToExtern()" class="btn btn-primary btn-login fw-bold project-btn-primary" type="submit">Book Tickets
-                            </button>
-                        </div>
-                        <!-- <img class="image-hover" src="./assets/img/Play icon.svg" /> -->
-                        <h3>Captain Marvel</h3>
-                    </div>
-                    <div  class="thumbnail-image">
-                        <div class="overlay-video"></div>
-                        <img class="image-th" src="../images/gallery/Iron-Man-3-Movie-Poster-Collage.jpg" />
-                        <!-- <img class="image-hover" src="./assets/img/Play icon.svg" /> -->
-                        <div class="image-hover">
-                            <button class="btn btn-primary btn-login fw-bold project-btn-primary" onclick="redirectToExternal()" type="submit">Watch Trailer
-                            </button>
-                            <button onclick="redirectToExtern()" class="btn btn-primary btn-login fw-bold project-btn-primary" type="submit">Book Tickets
-                            </button>
-                        </div>
-                        <h3>Black Panther</h3>
-                    </div>
-                    <div  class="thumbnail-image">
-                        <div class="overlay-video"></div>
-                        <img class="image-th" src="../images/gallery/bloodshot.jpg" />
-                        <!-- <img class="image-hover" src="./assets/img/Play icon.svg" /> -->
-                        <div class="image-hover">
-                            <button class="btn btn-primary btn-login fw-bold project-btn-primary" onclick="redirectToExternal()" type="submit">Watch Trailer
-                            </button>
-                            <button onclick="redirectToExtern()" class="btn btn-primary btn-login fw-bold project-btn-primary" type="submit">Book Tickets
-                            </button>
-                        </div>
-                        <h3>Lion King</h3>
-                    </div>
-                    <div  class="thumbnail-image">
-                        <div class="overlay-video"></div>
-                        <img class="image-th" src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/AtsgWhDnHTq68L0lLsUrCnM7TjG.jpg" />
-                        <!-- <img class="image-hover" src="./assets/img/Play icon.svg" /> -->
-                        <div class="image-hover">
-                            <button class="btn btn-primary btn-login fw-bold project-btn-primary" onclick="redirectToExternal()" type="submit">Watch Trailer
-                            </button>
-                            <button onclick="redirectToExtern()" class="btn btn-primary btn-login fw-bold project-btn-primary" type="submit">Book Tickets
-                            </button>
-                        </div>
-                        <h3>Pushpa</h3>
-                    </div>
-                    <div  class="thumbnail-image">
-                        <div class="overlay-video"></div>
-                        <img class="image-th" src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/AtsgWhDnHTq68L0lLsUrCnM7TjG.jpg" />
-                        <!-- <img class="image-hover" src="./assets/img/Play icon.svg" /> -->
-                        <div class="image-hover">
-                            <button class="btn btn-primary btn-login fw-bold project-btn-primary" onclick="redirectToExternal()" type="submit">Watch Trailer
-                            </button>
-                            <button onclick="redirectToExtern()" class="btn btn-primary btn-login fw-bold project-btn-primary" type="submit">Book Tickets
-                            </button>
-                        </div>
-                        <h3>Avengers</h3>
-                    </div>
-                    <div  class="thumbnail-image">
-                        <div class="overlay-video"></div>
-                        <img class="image-th" src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/AtsgWhDnHTq68L0lLsUrCnM7TjG.jpg" />
-                        <!-- <img class="image-hover" src="./assets/img/Play icon.svg" /> -->
-                        <div class="image-hover">
-                            <button class="btn btn-primary btn-login fw-bold project-btn-primary" onclick="redirectToExternal()" type="submit">Watch Trailer
-                            </button>
-                            <button onclick="redirectToExtern()" class="btn btn-primary btn-login fw-bold project-btn-primary" type="submit">Book Tickets
-                            </button>
-                        </div>
-                        <h3>Spider Man: No way home</h3>
-                    </div>
+                    <c:forEach var="movie" items="${searchMovies}">
+
+                       <div class="thumbnail-image">
+                          <div class="overlay-video"></div>
+                          <img class="image-th" src="../images/gallery/${movie.trailerPicture}" />
+                          <div class="image-hover">
+                              <button class="btn btn-primary btn-login fw-bold project-btn-primary"
+                                     onclick="window.location.href='/movieinfo/${movie.title}'" type="submit">Movie Info
+                              </button>
+                              <button class="btn btn-primary btn-login fw-bold project-btn-primary"
+                                     onclick="redirectToExternal()" type="submit">Watch Trailer
+                              </button>
+                              <button onclick="window.location.href='/showTimes/${movie.title}'"
+                                    class="btn btn-primary btn-login fw-bold project-btn-primary" type="submit">Book
+                                    Tickets
+                              </button>
+                          </div>
+                          <!-- <img class="image-hover" src="./assets/img/Play icon.svg" /> -->
+                          <h3>${movie.title}</h3>
+                       </div>
+
+                    </c:forEach>
+
                 </div>
             </div>
         </div>
