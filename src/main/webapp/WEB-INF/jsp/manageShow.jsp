@@ -1,4 +1,5 @@
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <style>
     .navbar {
         background-color: deepskyblue;
@@ -26,7 +27,6 @@
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/manageMovies.css">
-    <link rel="stylesheet" href="../css/signupsignin.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
@@ -41,16 +41,17 @@
         function redirectToExtern() {
             window.location.href = '../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/selectseats.html'
         }
+
         function redirectToMovie(movieLink){
             window.location.href = movieLink
         }
     </script>
 
 </head>
-<body style="background: aliceblue">
+<body>
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/"><img style="height: 50px; width:190px" src="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/images/project_logo.png"
+        <a class="navbar-brand" href="/"><img style="height: 50px; width:190px" src="../images/project_logo.png"
                                               alt=""></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,13 +87,13 @@
                             Testing
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/editprofile.html">
+                            <a class="dropdown-item" href="">
                                 Profile</a>
-                            <a class="dropdown-item" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/editpaymentinformation.html">Manage Payment Methods</a>
-                            <a class="dropdown-item" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/editbiilinginformation.html">Edit Billing Information</a>
+                            <a class="dropdown-item" href="">Manage Payment Methods</a>
+                            <a class="dropdown-item" href="">Edit Billing Information</a>
                             <a class="dropdown-item" href="#">Order History</a>
-                            <a class="dropdown-item" href="./signout">Logout</a>
-                            <a class="dropdown-item" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/adminMain.html">Admin Portal</a>
+                            <a class="dropdown-item" href="./logout">Logout</a>
+                            <a class="dropdown-item" href="/adminMain">Admin Portal</a>
                         </div>
                     </li>
                 </ul>
@@ -101,35 +102,54 @@
         </div>
     </div>
 </nav>
-<div class="container" style="margin-top:80px">
-    <div class="row">
-        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-            <div class="card border-0 shadow rounded-3 my-5">
-                <div class="card-body p-4 p-sm-5">
-                    <h3 class="card-title">Edit Movie Information</h3>
-                    <form:form method="POST" modelAttribute="showForm">
-
-                        <div class="form-floating mb-3">
-                            <form:input type="text" class="form-control" id="localDate" name="localDate"
-                                        placeholder="Local Date" path="localDate"/>
-                            <label for="localDate">Show Date</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <form:input type="text" class="form-control" id="localTime" name="localTime"
-                                        placeholder="Local Time" path="localTime"/>
-                            <label for="localTime">Show Time</label>
-                        </div>
-
-                        <div class="d-grid">
-                            <button class="btn btn-primary project-btn-primary" type="submit">
-                                Confirm
-                            </button>
-                        </div>
-                    </form:form>
-                </div>
-            </div>
-        </div>
+<div class="demo-page-body">
+    <div class="container">
+        <div class="row justify-content-center">
+        <div class="col-4 inherit" style="padding-bottom: 50px; padding-top: 50px;">
+        <h1>Manage Showtimes</h1>
     </div>
 </div>
+<div class="row justify-content-center manage-table table-responsive">
+    <div class="col-10 d-flex justify-content-center table-wrapper">
+        <table class="table table-striped table-hover table-bordered text-center table-responsive">
+            <thead>
+            <tr>
+                <th scope="col">Movie Title</th>
+                <th scope="col">Show Date</th>
+                <th scope="col">Show Time</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="show" items="${shows}">
+                <tr>
+                    <th class="align-middle" scope="row">${show.movie.title}</th>
+                    <td class="align-middle">${show.localDate}</td>
+                    <td class="align-middle">${show.localTime}</td>
+                    <td class="align-middle">
+                        <a href="./editMovie.html">
+                            <img src="../images/pencil.svg">
+                        </a>
+                    </td>
+                    <td class="align-middle">
+                        <a href="./adminMain">
+                            <img src="../images/x-square.svg">
+                        </a>
+                    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row justify-content-center" style="padding-top:25px">
+    <div class="col-8 text-center d-grid gap-1" style="width: 300px">
+        <a href="./movieSelect" class="btn btn-block btn-lg btn-primary project-btn-primary">Add New Showtime</a>
+    </div>
+</div>
+</div>
+</div>
+
 
 </body>

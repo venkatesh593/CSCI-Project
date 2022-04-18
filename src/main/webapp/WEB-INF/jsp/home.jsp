@@ -138,8 +138,8 @@
                                 <div class="overlay-video"></div>
                                 <img class="image-th" src="../images/gallery/${movie.trailerPicture}" />
                                 <div class="image-hover">
-                                    <button class="btn btn-primary btn-login fw-bold project-btn-primary"
-                                        onclick="redirectToExternal()" type="submit">Watch Trailer
+                                    <button type="button" class="project-btn-primary btn btn-primary" data-toggle="modal" data-target="#${movie.movie_id}Modal">
+                                        Watch Trailer
                                     </button>
                                     <button onclick="redirectToExtern()"
                                         class="btn btn-primary btn-login fw-bold project-btn-primary" type="submit">Book
@@ -169,9 +169,9 @@
                                           <div class="overlay-video"></div>
                                               <img class="image-th" src="../images/gallery/${movie.trailerPicture}" />
                                                   <div class="image-hover">
-                                                 <button class="btn btn-primary btn-login fw-bold project-btn-primary"
-                                                       onclick="redirectToExternal()" type="submit">Watch Trailer
-                                                 </button>
+                                                      <button type="button" class="project-btn-primary btn btn-primary" data-toggle="modal" data-target="#${movie.movie_id}Modal">
+                                                          Watch Trailer
+                                                      </button>
                                                   <button onclick="redirectToExtern()"
                                                      class="btn btn-primary btn-login fw-bold project-btn-primary" type="submit">Book
                                                       Tickets
@@ -192,4 +192,44 @@
             </div>
         </div>
     </div>
+
+
+
+
 </body>
+
+<c:forEach var="movie" items="${playingMovies}">
+    <div class="modal fade" id="${movie.movie_id}Modal" tabindex="-1" role="dialog" aria-labelledby="${movie.movie_id}ModalTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times</span>
+                    </button>
+                    <!-- 16:9 aspect ratio -->
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="${movie.trailerVideo}"  allowscriptaccess="always" allow="autoplay"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</c:forEach>
+
+<c:forEach var="movie" items="${upcomingMovies}">
+    <div class="modal fade" id="${movie.movie_id}Modal" tabindex="-1" role="dialog" aria-labelledby="${movie.movie_id}ModalTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times</span>
+                    </button>
+                    <!-- 16:9 aspect ratio -->
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="${movie.trailerVideo}"  allowscriptaccess="always" allow="autoplay"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</c:forEach>

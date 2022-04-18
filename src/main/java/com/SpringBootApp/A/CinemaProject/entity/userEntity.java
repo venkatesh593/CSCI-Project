@@ -45,6 +45,7 @@ public class userEntity {
     public void setUserStatus(String userStatus) {
         this.userStatus = userStatus;
     }
+
     public String getVerCode() {
         return verCode;
     }
@@ -63,20 +64,27 @@ public class userEntity {
         return wantsPromotions;
     }
     public void setWantsPromotions(String wantsPromotions) {
-        this.wantsPromotions = wantsPromotions;
+        if(!wantsPromotions.equals("true")) {
+            this.wantsPromotions = "false";
+        } else {
+            this.wantsPromotions = wantsPromotions;
+        }
     }
+
     public long getUser_id() {
         return user_id;
     }
     public void setUser_id(long user_id) {
         this.user_id = user_id;
     }
+
     public String getFirstName() {
         return firstName;
     }
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
+
     public String getLastName() {
         return lastName;
     }

@@ -104,7 +104,7 @@
   </nav>
         <div class="demo-page-body">
           <div class="container">
-            <div class="row justify-content-center"
+            <div class="row justify-content-center">
               <div class="col-4 inherit" style="padding-bottom: 50px; padding-top: 50px;">
                 <h1>Manage Promotions </h1>
               </div>

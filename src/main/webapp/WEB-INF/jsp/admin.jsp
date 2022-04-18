@@ -88,7 +88,7 @@
             <div class="card text-center shadow rounded-3" style="width: 18rem;">
                 <img src="/images/ManageMovies.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <a href="./manageMovies.jsp" class="btn btn-primary project-btn-primary"  >Manage Movies</a>
+                    <a href="./manageMovies" class="btn btn-primary project-btn-primary"  >Manage Movies</a>
                     <p class="card-text" >Here you are able to manage the information regarding a specific movie.</p>
                 </div>
             </div>
@@ -97,7 +97,7 @@
             <div class="card text-center shadow rounded-3" style="width: 18rem;">
                 <img src="/images/ManageShowtimes.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <a href="./manageShowings.html" class="btn btn-primary project-btn-primary"  >Manage Showtimes</a>
+                    <a href="./manageShow" class="btn btn-primary project-btn-primary"  >Manage Showtimes</a>
                     <p class="card-text" >Here you are able to manage the showtimes and which theater that a movie is playing in.</p>
                 </div>
             </div>
@@ -106,7 +106,7 @@
             <div class="card text-center shadow rounded-3" style="width: 18rem;">
                 <img src="/images/ManagePromotions.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <a href="./managePromotions.jsp" class="btn btn-primary project-btn-primary">Manage Promotions</a>
+                    <a href="./managePromotions" class="btn btn-primary project-btn-primary">Manage Promotions</a>
                     <p class="card-text" >Here you can add and update promotions to apply to the ticket checkout process. </p>
                 </div>
             </div>

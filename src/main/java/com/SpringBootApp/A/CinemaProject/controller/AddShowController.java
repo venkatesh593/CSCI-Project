@@ -55,18 +55,22 @@ public class AddShowController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
 
-        movieEntity movieInstance = movieRepo.findByTitle(movieTitle);
+        if(!showRepo.existsByLocalDateAndLocalTime(showForm.getLocalDate(), showForm.getLocalTime())) {
+            movieEntity movieInstance = movieRepo.findByTitle(movieTitle);
 
 
-        showForm.setMovie(movieInstance);
-        showForm.setLocalDate(showForm.getLocalDate());
-        showForm.setLocalTime(showForm.getLocalTime());
-        Set<showEntity> shows = new HashSet<>();
-        shows.add(showForm);
-        movieInstance.setShows(shows);
+            showForm.setMovie(movieInstance);
+            showForm.setLocalDate(showForm.getLocalDate());
+            showForm.setLocalTime(showForm.getLocalTime());
+            Set<showEntity> shows = new HashSet<>();
+            shows.add(showForm);
+            movieInstance.setShows(shows);
 
-        movieRepo.save(movieInstance);
+            movieRepo.save(movieInstance);
 
-        return "redirect:/manageMovies";
+            return "redirect:/manageShow";
+        } else {
+            return "redirect:/movieSelect?error";
+        }
     }
 }
