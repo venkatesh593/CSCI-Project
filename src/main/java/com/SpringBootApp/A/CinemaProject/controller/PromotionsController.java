@@ -85,7 +85,7 @@ public class PromotionsController {
         Message msg = new MimeMessage(session);
         msg.setFrom(new InternetAddress("cinemaregconf@gmail.com", false));
         msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(emailRecipient));
-        msg.setSubject("Registration Confirmation Email");
+        msg.setSubject("New Cinema E-Booking Promotion Code");
         msg.setContent("Hello, \n\nWe are pleased to announce that we have created a new promotion! \n\nThis promotion is a code for " + promoAmt +
                 " off your purchases! \n\n To redeem this code please use the code: " +
                 promoCode + " at checkout.", "text/html");

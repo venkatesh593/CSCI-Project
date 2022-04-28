@@ -45,7 +45,7 @@ public class SecurityService {
             if (userDetails.getAuthorities().stream().anyMatch(ga -> ga.getAuthority().equals("ADMIN")))
                 return "redirect:/admin";
             else
-                return "redirect:/moviegallery";
+                return "redirect:/home";
         } catch (UsernameNotFoundException e) {
             return "redirect:/login?error";
         } catch(BadCredentialsException b) {

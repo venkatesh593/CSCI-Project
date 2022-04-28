@@ -67,16 +67,16 @@
                          </form> -->
                   <ul class="navbar-nav" style="float: left">
                       <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/home.html">Home</a>
+                          <a class="nav-link active" aria-current="page" href="/home">Home</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/moviegallery.html">Movies</a>
+                          <a class="nav-link active" aria-current="page" href="/moviegallery">Movies</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/signup.html">Sign Up</a>
+                          <a class="nav-link" href="/registration">Sign Up</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/signin.html">Login</a>
+                          <a class="nav-link" href="/login">Login</a>
                       </li>
 
                   </ul>
@@ -92,8 +92,8 @@
                               <a class="dropdown-item" href="">Manage Payment Methods</a>
                               <a class="dropdown-item" href="">Edit Billing Information</a>
                               <a class="dropdown-item" href="#">Order History</a>
-                              <a class="dropdown-item" href="./logout">Logout</a>
-                              <a class="dropdown-item" href="/adminMain">Admin Portal</a>
+                              <a class="dropdown-item" href="/logout">Logout</a>
+                              <a class="dropdown-item" href="/admin">Admin Portal</a>
                           </div>
                       </li>
                   </ul>
@@ -119,6 +119,7 @@
                         <th scope="col">Producer</th>
                         <th scope="col">Category</th>
                         <th scope="col">Synopsis</th>
+                        <th scope="col">Reviews</th>
                         <th scope="col">Trailer</th>
                         <th scope="col">MPAA-US Film Rating</th>
                         <th scope="col">Cast</th>
@@ -136,6 +137,7 @@
                             <td class="align-middle"><button type="button" class="project-btn-primary btn btn-primary" data-toggle="modal" data-target="#${movie.movie_id}Modal">
                               View Synopsis
                             </button></td>
+                            <td class="align-middle">${movie.reviews}</td>
                             <td class="align-middle"><a href="${movie.trailerVideo}">
                               <img style="width:100px; height:148px"  src="../images/gallery/${movie.trailerPicture}">
                             </a></td>

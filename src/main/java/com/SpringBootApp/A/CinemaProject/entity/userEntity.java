@@ -64,11 +64,7 @@ public class userEntity {
         return wantsPromotions;
     }
     public void setWantsPromotions(String wantsPromotions) {
-        if(!wantsPromotions.equals("true")) {
-            this.wantsPromotions = "false";
-        } else {
             this.wantsPromotions = wantsPromotions;
-        }
     }
 
     public long getUser_id() {

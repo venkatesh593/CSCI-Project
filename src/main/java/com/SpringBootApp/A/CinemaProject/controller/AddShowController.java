@@ -58,6 +58,10 @@ public class AddShowController {
         if(!showRepo.existsByLocalDateAndLocalTime(showForm.getLocalDate(), showForm.getLocalTime())) {
             movieEntity movieInstance = movieRepo.findByTitle(movieTitle);
 
+            System.out.println(showForm.getLocalDate());
+            System.out.println(showForm.getLocalTime());
+            System.out.println(movieInstance);
+
 
             showForm.setMovie(movieInstance);
             showForm.setLocalDate(showForm.getLocalDate());

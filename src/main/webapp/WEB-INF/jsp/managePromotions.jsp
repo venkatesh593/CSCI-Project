@@ -67,33 +67,33 @@
                          </form> -->
                   <ul class="navbar-nav" style="float: left">
                       <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
+                          <a class="nav-link active" aria-current="page" href="/home">Home</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="./moviegallery.html">Movies</a>
+                          <a class="nav-link active" aria-current="page" href="/moviegallery">Movies</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="./signup.html">Sign Up</a>
+                          <a class="nav-link" href="/registration">Sign Up</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="./signin.html">Login</a>
+                          <a class="nav-link" href="/login">Login</a>
                       </li>
 
                   </ul>
                   <ul class="navbar-nav" style="float: right">
                       <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                              aria-haspopup="true" aria-expanded="false">
+                             aria-haspopup="true" aria-expanded="false">
                               Testing
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                              <a class="dropdown-item" href="./editprofile.html">
+                              <a class="dropdown-item" href="">
                                   Profile</a>
-                              <a class="dropdown-item" href="./editpaymentinformation.html">Manage Payment Methods</a>
-                              <a class="dropdown-item" href="./editbiilinginformation.html">Edit Billing Information</a>
+                              <a class="dropdown-item" href="">Manage Payment Methods</a>
+                              <a class="dropdown-item" href="">Edit Billing Information</a>
                               <a class="dropdown-item" href="#">Order History</a>
-                              <a class="dropdown-item" href="./signout">Logout</a>
-                              <a class="dropdown-item" href="./adminMain.html">Admin Portal</a>
+                              <a class="dropdown-item" href="/logout">Logout</a>
+                              <a class="dropdown-item" href="/admin">Admin Portal</a>
                           </div>
                       </li>
                   </ul>
