@@ -148,8 +148,8 @@ Support: https://sellix.io/fr0zen/contact
                               <button class="btn btn-primary btn-login fw-bold project-btn-primary"
                                      onclick="window.location.href='/movieinfo/${movie.title}'" type="submit">Movie Info
                               </button>
-                              <button class="btn btn-primary btn-login fw-bold project-btn-primary"
-                                     onclick="redirectToExternal()" type="submit">Watch Trailer
+                              <button type="button" class="project-btn-primary btn btn-primary" data-toggle="modal" data-target="#${movie.movie_id}Modal">
+                                  Watch Trailer
                               </button>
                               <button onclick="window.location.href='/showTimes/${movie.title}'"
                                     class="btn btn-primary btn-login fw-bold project-btn-primary" type="submit">Book
@@ -172,3 +172,21 @@ Support: https://sellix.io/fr0zen/contact
 </div>
 
 </body>
+
+<c:forEach var="movie" items="${searchMovies}">
+    <div class="modal fade" id="${movie.movie_id}Modal" tabindex="-1" role="dialog" aria-labelledby="${movie.movie_id}ModalTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times</span>
+                    </button>
+                    <!-- 16:9 aspect ratio -->
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="${movie.trailerVideo}"  allowscriptaccess="always" allow="autoplay"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</c:forEach>
