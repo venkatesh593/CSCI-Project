@@ -17,7 +17,7 @@ public class movieEntity {
 
     @NotEmpty
     private String title;
-    private double duration;
+    private long duration;
     @NotEmpty
     private String category;
     @NotEmpty
@@ -65,12 +65,12 @@ public class movieEntity {
     }
 
 
-    public void setDuration(double duration) {
-        this.duration = duration;
+    public long getDuration() {
+        return duration;
     }
 
-    public double getDuration(){
-        return this.duration;
+    public void setDuration(long duration) {
+        this.duration = duration;
     }
 
     public void setFilmRating(String filmRating) {
