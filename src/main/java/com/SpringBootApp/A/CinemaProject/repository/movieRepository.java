@@ -10,6 +10,8 @@ import java.util.Optional;
 public interface movieRepository extends CrudRepository<movieEntity, Long> {
     movieEntity findById(long movie_id);
 
+    Collection<movieEntity> findByTitleContainingIgnoreCase(String title);
+
     movieEntity findByTitle(String title);
 
     @Query(

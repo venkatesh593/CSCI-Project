@@ -45,9 +45,9 @@ public class GalleryController {
 
     @RequestMapping(value = "/moviegallery/{movieTitle}", method = RequestMethod.GET)
     public String showSearchPage(@PathVariable("movieTitle") String title, ModelMap model) {
-        model.addAttribute("searchMovies", movieRepo.findAllByTitle(title));
+        model.addAttribute("searchMovies", movieRepo.findByTitleContainingIgnoreCase(title));
         model.addAttribute("title", new movieEntity());
-        if (movieRepo.findAllByTitle(title).isEmpty())
+        if (movieRepo.findByTitleContainingIgnoreCase(title).isEmpty())
             return "redirect:/moviegallery?error";
         return "moviegallery";
     }
