@@ -106,7 +106,7 @@
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
             <div class="card border-0 shadow rounded-3 my-5">
                 <div class="card-body p-4 p-sm-5">
-                    <h3 class="card-title">Edit Movie Information</h3>
+                    <h3 class="card-title">Add Show Date and Time</h3>
                     <form:form method="POST" modelAttribute="showForm">
 
                         <div class="form-floating mb-3">

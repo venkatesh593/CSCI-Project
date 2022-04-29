@@ -107,7 +107,7 @@
           <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
               <div class="card border-0 shadow rounded-3 my-5">
                   <div class="card-body p-4 p-sm-5">
-                      <h3 class="card-title">Edit Movie Information</h3>
+                      <h3 class="card-title">Add Movie Information</h3>
                       <form:form method="POST" modelAttribute="movieForm">
                         <div class="form-floating mb-3">
                             <form:input type="text" class="form-control" id="title" name="title"
