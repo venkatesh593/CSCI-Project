@@ -23,6 +23,10 @@ public class showEntity {
     @JoinColumn(name = "movie_id")
     private movieEntity movie;
 
+    @OneToOne
+    @JoinColumn(name = "showroom_id")
+    private showroomEntity showroom;
+
     public long getShow_id() {
         return show_id;
     }
@@ -54,4 +58,14 @@ public class showEntity {
     public void setMovie(movieEntity movie) {
         this.movie = movie;
     }
+
+
+    public showroomEntity getShowroom() {
+        return showroom;
+    }
+
+    public void setShowroom(showroomEntity showroom) {
+        this.showroom = showroom;
+    }
+
 }

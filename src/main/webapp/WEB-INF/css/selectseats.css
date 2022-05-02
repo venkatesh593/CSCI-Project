@@ -48,15 +48,7 @@ h2 {
 .seat.occupied {
   background-color: #fff;
 }
-/* Selects the nth elements among the group of siblings */
-.seat:nth-of-type(2) {
-  margin-right: 20px;
-}
 
-/* Selects the nth elements among the group of siblings starting from end */
-.seat:nth-last-of-type(2) {
-  margin-left: 20px;
-}
 
 /* Selects any element that is NOT a given type or contains a class */
 .container .seat:not(.occupied):hover {
