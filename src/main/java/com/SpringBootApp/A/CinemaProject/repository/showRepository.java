@@ -22,4 +22,6 @@ public interface showRepository extends CrudRepository<showEntity, Long> {
             nativeQuery = true
     )
     Collection<showEntity> findAllConflictingShows(@Param("date")LocalDate date, @Param("time")LocalTime time);
+
+    showEntity findByLocalDateAndLocalTime(LocalDate date, LocalTime time);
 }
