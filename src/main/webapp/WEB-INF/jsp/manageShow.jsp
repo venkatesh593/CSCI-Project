@@ -116,7 +116,8 @@
             <tr>
                 <th scope="col">Movie Title</th>
                 <th scope="col">Show Date</th>
-                <th scope="col">Show Time</th>
+                <th scope="col">Start Time</th>
+                <th scope="col">End Time</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
@@ -127,6 +128,7 @@
                     <th class="align-middle" scope="row">${show.movie.title}</th>
                     <td class="align-middle">${show.localDate}</td>
                     <td class="align-middle">${show.localTime}</td>
+                    <td class="align-middle">${show.endTime}</td>
                     <td class="align-middle">
                         <a href="./editMovie.html">
                             <img src="../images/pencil.svg">
