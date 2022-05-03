@@ -52,7 +52,7 @@
 <body style="background: aliceblue">
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
       <div class="container-fluid">
-          <a class="navbar-brand" href="/"><img style="height: 50px; width:190px" src="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/images/project_logo.png"
+          <a class="navbar-brand" href="/"><img style="height: 50px; width:190px" src="/images/project_logo.png"
                   alt=""></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,7 +85,7 @@
                       <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" style="padding-top: 20px;" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                               aria-haspopup="true" aria-expanded="false">
-                              Testing
+                              Admin
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style=" left: -190px;top: 50px;">
                               <a class="dropdown-item" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/editprofile.html">

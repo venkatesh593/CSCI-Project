@@ -143,7 +143,11 @@
 
 
                             <div class="d-grid">
-                                <input type="submit" value="Submit">
+                                <button class="from-control" style="  background-color: #FDB44B!important;
+                                border-color: black!important;
+                                color: black!important;" type="submit" class="project-btn-primary">Sign
+                                    Up
+                                </button>
                             </div>
                             </form:form>
                     </div>
