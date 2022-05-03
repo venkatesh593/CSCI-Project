@@ -94,7 +94,7 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img class="d-block w-100"
-                            src="https://images.fandango.com/ImageRenderer/1280/0/redesign/static/img/default_poster.png/0/images/spotlight/MarryMe_Exclusive.jpg"
+                            src="https://c4.wallpaperflare.com/wallpaper/1017/837/203/movie-time-wallpaper-preview.jpg"
                             alt="First slide">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>My Caption Title (1st Image)</h5>
@@ -102,10 +102,10 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="https://placeimg.com/1080/500/arch" alt="Second slide">
+                        <img class="d-block w-100" src="https://wallpaper.dog/large/5486432.jpg" alt="Second slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="https://placeimg.com/1080/500/nature" alt="Third slide">
+                        <img class="d-block w-100" src="https://vistapointe.net/images/movie-theater-wallpaper-4.jpg" alt="Third slide">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -190,9 +190,6 @@
                                     </div>
 
                                 </c:forEach>
-
-
-
                             </div>
                         </div>
                     </div>
@@ -200,9 +197,6 @@
             </div>
         </div>
     </div>
-
-
-
 
 </body>
 
