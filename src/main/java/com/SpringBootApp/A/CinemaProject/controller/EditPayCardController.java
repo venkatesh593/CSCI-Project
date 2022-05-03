@@ -27,25 +27,20 @@ public class EditPayCardController {
     @Autowired
     private payCardRepository payCardRepo;
 
-    @RequestMapping(value = "editpaycard/{userName}", method = RequestMethod.GET)
-    public String showEditPayCardPage(@PathVariable("userName") String userName, Model model, userEntity userForm) {
-        userEntity loggedUser = userRepo.findByUserName(userName);
-        payCardEntity currentCard = payCardRepo.findByUser(loggedUser);
-        //System.out.println(loggedUser.getUserName());
-        model.addAttribute("loggedUser", loggedUser);
+    @RequestMapping(value = "editpaycard/{payCard_id}", method = RequestMethod.GET)
+    public String showEditPayCardPage(@PathVariable("payCard_id") long payCard_id, Model model, userEntity userForm) {
+        payCardEntity currentCard = payCardRepo.findById(payCard_id);
         model.addAttribute("currentCard", currentCard);
         model.addAttribute("payForm", new payCardEntity());
-        model.addAttribute("userForm", new userEntity());
-
 
         return "editpaycard";
     }
-    @RequestMapping(value = "editpaycard/{userName}", method = RequestMethod.POST)
-    public String sendEditPayCardPage(@ModelAttribute("userForm") userEntity userForm, Model model,
-                                      @PathVariable("userName") String userName,
+    @RequestMapping(value = "editpaycard/{payCard_id}", method = RequestMethod.POST)
+    public String sendEditPayCardPage(Model model,
+                                      @PathVariable("payCard_id") long payCard_id,
                                       @ModelAttribute("payForm") payCardEntity payForm) {
         userEntity accountInstance = userRepo.findByUserName(securityService.findLoggedInUsername());
-        payCardEntity cardInstance = payCardRepo.findByUser(accountInstance);
+        payCardEntity cardInstance = payCardRepo.findById(payCard_id);
 
         cardInstance.setCardType(payForm.getCardType());
         cardInstance.setCardNumber(payForm.getCardNumber());
@@ -57,6 +52,6 @@ public class EditPayCardController {
 
         payCardRepo.save(cardInstance);
 
-        return "redirect:/editprofile/" + accountInstance.getUserName();
+        return "redirect:/managePayCards/" + accountInstance.getUserName();
     }
 }

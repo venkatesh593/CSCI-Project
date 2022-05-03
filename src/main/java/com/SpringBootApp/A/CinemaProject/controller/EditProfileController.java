@@ -57,6 +57,6 @@ public class EditProfileController {
 
         userRepo.save(accountInstance);
 
-        return "redirect:/editpaycard/" + userForm.getUserName();
+        return "redirect:/managePayCards/" + userForm.getUserName();
     }
 }
