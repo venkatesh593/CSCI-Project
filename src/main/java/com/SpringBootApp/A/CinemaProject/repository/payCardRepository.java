@@ -5,6 +5,6 @@ import com.SpringBootApp.A.CinemaProject.entity.userEntity;
 import org.springframework.data.repository.CrudRepository;
 
 public interface payCardRepository extends CrudRepository<payCardEntity, Long> {
-
+    payCardEntity findById(long id);
     payCardEntity findByUser(userEntity user);
 }

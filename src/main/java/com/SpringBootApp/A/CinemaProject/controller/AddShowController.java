@@ -1,9 +1,13 @@
 package com.SpringBootApp.A.CinemaProject.controller;
 
 import com.SpringBootApp.A.CinemaProject.entity.movieEntity;
+import com.SpringBootApp.A.CinemaProject.entity.seatEntity;
 import com.SpringBootApp.A.CinemaProject.entity.showEntity;
+import com.SpringBootApp.A.CinemaProject.entity.showroomEntity;
 import com.SpringBootApp.A.CinemaProject.repository.movieRepository;
+import com.SpringBootApp.A.CinemaProject.repository.seatRepository;
 import com.SpringBootApp.A.CinemaProject.repository.showRepository;
+import com.SpringBootApp.A.CinemaProject.repository.showroomRepository;
 import com.SpringBootApp.A.CinemaProject.service.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -19,7 +23,9 @@ import javax.mail.MessagingException;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Controller
@@ -29,6 +35,12 @@ public class AddShowController {
 
     @Autowired
     private showRepository showRepo;
+
+    @Autowired
+    private showroomRepository showroomRepo;
+
+    @Autowired
+    private seatRepository seatRepo;
 
     @Autowired
     private SecurityService securityService;
@@ -45,27 +57,49 @@ public class AddShowController {
     @RequestMapping(value = "/addShow/{movieTitle}", method = RequestMethod.POST)
     public Object addShow(@PathVariable("movieTitle") String movieTitle,
                           @ModelAttribute("showForm") showEntity showForm, BindingResult bindingResult
-                          // @RequestParam("localDate")
-                           //@DateTimeFormat(pattern = "dd.MM.yyyy") LocalDate localDate,
-                           //@RequestParam("localTime")
-                           //@DateTimeFormat(pattern = "HH:mm:ss") LocalTime localTime
     )
             throws IOException, MessagingException {
         if(bindingResult.hasErrors()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
+        movieEntity movieInstance = movieRepo.findByTitle(movieTitle);
+        if(!showRepo.existsByLocalDateAndLocalTime(showForm.getLocalDate(), showForm.getLocalTime())
+                && showRepo.findAllConflictingShows(showForm.getLocalDate(), showForm.getLocalTime(),
+                    showForm.getLocalTime().plusMinutes(movieInstance.getDuration())).isEmpty()) {
 
-        if(!showRepo.existsByLocalDateAndLocalTime(showForm.getLocalDate(), showForm.getLocalTime())) {
-            movieEntity movieInstance = movieRepo.findByTitle(movieTitle);
 
             System.out.println(showForm.getLocalDate());
             System.out.println(showForm.getLocalTime());
             System.out.println(movieInstance);
 
+            showroomEntity showroom = new showroomEntity();
+            showroom.setNumCols(5);
+            showroom.setNumRows(5);
+            showroom.setCapacity(25);
+            List<seatEntity> seats = new ArrayList<seatEntity>();
+            showroom.setSeats(seats);
+            showroomRepo.save(showroom);
 
+            System.out.println(showroom.getNumRows());
+            for(int i = 0; i < showroom.getNumRows(); i++) {
+                for(int j = 0; j < showroom.getNumCols(); j++) {
+                    System.out.println("5");
+                    seatEntity seat = new seatEntity();
+                    seat.setRowNum(i);
+                    seat.setColNum(j);
+                    seat.setShowroom(showroom);
+                    seat.setStatus(false);
+                    seats.add(seat);
+                    seatRepo.save(seat);
+                }
+            }
+            showroomRepo.save(showroom);
+
+            showForm.setShowroom(showroom);
             showForm.setMovie(movieInstance);
             showForm.setLocalDate(showForm.getLocalDate());
             showForm.setLocalTime(showForm.getLocalTime());
+            showForm.setEndTime(showForm.getLocalTime().plusMinutes(movieInstance.getDuration()));
             Set<showEntity> shows = new HashSet<>();
             shows.add(showForm);
             movieInstance.setShows(shows);

@@ -17,9 +17,12 @@ public interface showRepository extends CrudRepository<showEntity, Long> {
 
     @Query(
             value = "SELECT * FROM shows " +
-                    "WHERE shows.localDate == :date && "+
-                    "shows.localTime == :time",
+                    "WHERE shows.local_Date = ?1 " +
+                    "AND shows.local_Time <= ?2 AND shows.end_time >= ?2 " +
+                    "OR shows.local_time <= ?3 AND shows.end_time >= ?3",
             nativeQuery = true
     )
-    Collection<showEntity> findAllConflictingShows(@Param("date")LocalDate date, @Param("time")LocalTime time);
+    Collection<showEntity> findAllConflictingShows(LocalDate date, LocalTime time, LocalTime endtime);
+
+    showEntity findByLocalDateAndLocalTime(LocalDate date, LocalTime time);
 }

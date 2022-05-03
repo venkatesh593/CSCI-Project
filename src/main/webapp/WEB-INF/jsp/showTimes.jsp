@@ -81,7 +81,6 @@
             <div class="bg-white rounded-lg shadow-lg rounded-3 p-5">
                 <div class="tab-content">
                     <div id="nav-tab-card" class="tab-pane fade show active">
-                        <form:form method="POST" modelAttribute="timesForm">
                             <h3 class="display-4 text-center">Show times</h3><br>
                             <p class="h3 text-center">Movie: ${timesForm.title}</p>
 
@@ -98,8 +97,9 @@
                                 <tbody>
                                 <c:forEach var="show" items="${timesForm.shows}">
                                     <tr style="text-align: center;">
-                                        <td><input class="form-check-input" type="checkbox" value=""
-                                                ></td>
+                                        <td><button onclick="window.location.href='/selectseats/${show.show_id}'"
+                                             class="btn project-btn-primary">Book Tickets
+                                        </button></td>
                                         <td scope="row">${show.localDate}</td>
 
                                         <td>
@@ -112,7 +112,6 @@
                             </table>
                             <button onClick="location.href='/selectseats' " class="btn project-btn-primary"
                                 type="submit" style="margin-left: 43%; margin-top: 10px;">Select Seats</button>
-                        </form:form>
                     </div>
                 </div>
             </div>

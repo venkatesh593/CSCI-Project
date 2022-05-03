@@ -116,6 +116,12 @@
                             <label for="title">Movie Title</label>
                         </div>
                         <div class="form-floating mb-3">
+                           <form:input type="text" class="form-control" id="duration" name="duration"
+                               placeholder="Duration" path="duration"/>
+                           <form:errors path="duration" cssClass="alert alert-danger errors" element="div"></form:errors>
+                           <label for="duration">Duration</label>
+                        </div>
+                        <div class="form-floating mb-3">
                             <form:input type="text" class="form-control" id="director" name="director"
                                 placeholder="Director" path="director"/>
                             <form:errors path="director" cssClass="alert alert-danger errors" element="div"></form:errors>
