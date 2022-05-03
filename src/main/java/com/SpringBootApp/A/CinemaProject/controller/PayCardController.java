@@ -39,6 +39,12 @@ public class PayCardController {
         model.addAttribute("payForm", new payCardEntity());
         return "paycard";
     }
+    @RequestMapping(value = "/paycard/add/{userName}", method = RequestMethod.GET)
+    public String showAddPayCardPage(@PathVariable("userName") String userName,Model model) {
+        //model.addAttribute("userForm", new userEntity());
+        model.addAttribute("payForm", new payCardEntity());
+        return "paycard";
+    }
 
     @RequestMapping(value = "/paycard/{userName}", method = RequestMethod.POST)
     public Object registerAccount(@PathVariable("userName") String userName, @ModelAttribute("payForm") payCardEntity payForm, BindingResult bindingResult)
@@ -59,5 +65,25 @@ public class PayCardController {
         userRepo.save(accountInstance);
 
         return "redirect:/regconf";
+    }
+    @RequestMapping(value = "/paycard/add/{userName}", method = RequestMethod.POST)
+    public Object addPayCard(@PathVariable("userName") String userName, @ModelAttribute("payForm") payCardEntity payForm, BindingResult bindingResult)
+            throws IOException, MessagingException {
+        if (bindingResult.hasErrors()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+        userEntity accountInstance = userRepo.findByUserName(userName);
+
+        payForm.setCardType(payForm.getCardType());
+        payForm.setCardNumber(bCryptPasswordEncoder.encode(payForm.getCardNumber()));
+        payForm.setExpDate(payForm.getExpDate());
+        payForm.setUser(accountInstance);
+        Set<payCardEntity> payCards = new HashSet<>();
+        payCards.add(payForm);
+        accountInstance.setPayCards(payCards);
+
+        userRepo.save(accountInstance);
+
+        return "redirect:/managePayCards/"+accountInstance.getUserName();
     }
 }

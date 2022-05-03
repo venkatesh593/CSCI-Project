@@ -106,7 +106,7 @@
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-4 inherit" style=" padding-top: 50px;">
-                <h1>Manage Movies </h1>
+                <h1>Manage Pay Cards </h1>
               </div>
             </div>
             <div class="row justify-content-center manage-table table-responsive">
@@ -130,7 +130,7 @@
                             <td class="align-middle">${payCard.expDate}</td>
                             <td class="align-middle">${payCard.cvv}</td>
                             <td class="align-middle">
-                              <a href="/editpaycard">
+                              <a href="/editpaycard/${payCard.payCard_id}">
                                 <img src="../images/pencil.svg">
                               </a>
                             </td>
@@ -145,10 +145,12 @@
                   </table>
                 </div>
             </div>
+            <c:if test="${payCardSize < 3}">
             <div class="row justify-content-center" style="padding-top:25px">
               <div class="col-8 text-center d-grid gap-1" style="width: 300px">
-                  <a href="/paycard" class="btn btn-block btn-lg btn-primary project-btn-primary">Add a Payment Card</a>
+                  <a href="/paycard/add/${pageContext.request.userPrincipal.name}" class="btn btn-block btn-lg btn-primary project-btn-primary">Add a Payment Card</a>
               </div>
             </div>
+            </c:if>
           </div>
         </div>
