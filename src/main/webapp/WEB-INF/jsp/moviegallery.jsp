@@ -92,7 +92,7 @@ Support: https://sellix.io/fr0zen/contact
                     <form:form  method="POST" modelAttribute="title" class="d-flex">
                         <form:input class="form-control" type="text" name="title" id="title"
                         placeholder="title" path="title" />
-                        <form:button class="form-control" type="submit">Search</form:button>
+                        <form:button class="form-control" type="submit" style="width: 150px;background: black;color: white;">Search</form:button>
                     </form:form>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
