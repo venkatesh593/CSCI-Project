@@ -102,11 +102,11 @@ Support: https://sellix.io/fr0zen/contact
                             <a class="nav-link" href="/login">Login</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                            <a class="nav-link dropdown-toggle" style="padding-top: 20px;" href="#" id="navbarDropdownMenuLink"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 ${pageContext.request.userPrincipal.name}
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style=" left: -190px;top: 50px;">
                                 <a class="dropdown-item" href="/editprofile/${pageContext.request.userPrincipal.name}">
                                     Profile</a>
                                 <a class="dropdown-item" href="#">Manage Payment Methods</a>
@@ -157,8 +157,10 @@ Support: https://sellix.io/fr0zen/contact
                               </button>
                           </div>
                           <!-- <img class="image-hover" src="./assets/img/Play icon.svg" /> -->
-                          <h3>${movie.title}</h3>
-                          <h3>${movie.filmRating}</h3>
+                          <div style="display:flex; flex-direction: column; text-align: center;">
+                              <span>${movie.title}</span>
+                              <span>${movie.filmRating}</span>
+                          </div>
                        </div>
 
                     </c:forEach>

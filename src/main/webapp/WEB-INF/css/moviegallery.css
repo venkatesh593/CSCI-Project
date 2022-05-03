@@ -55,10 +55,11 @@
     margin-bottom: 20px;
 }
 .demo-page-body  .thumbnail-image {
-    margin: 20px;
+    margin: 40px;
     border-radius: 4px;
     transition: all 0.2s ease-in-out;
-    height: 500px;
+    height: 400px;
+    width: 310.5px;
     cursor: pointer;
 }
 .demo-page-body  .thumbnail-image .image-th {
