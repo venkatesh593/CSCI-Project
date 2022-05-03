@@ -28,7 +28,7 @@ public class ManageShowController {
         model.addAttribute("movies", movieRepo.findAll());
 
         if (error != null)
-            model.addAttribute("error", "A Show already exists at this time please try again.");
+            model.addAttribute("error", "This Show conflicts with another please try again.");
 
         return "/movieSelect";
     }

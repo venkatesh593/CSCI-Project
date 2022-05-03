@@ -57,18 +57,16 @@ public class AddShowController {
     @RequestMapping(value = "/addShow/{movieTitle}", method = RequestMethod.POST)
     public Object addShow(@PathVariable("movieTitle") String movieTitle,
                           @ModelAttribute("showForm") showEntity showForm, BindingResult bindingResult
-                          // @RequestParam("localDate")
-                           //@DateTimeFormat(pattern = "dd.MM.yyyy") LocalDate localDate,
-                           //@RequestParam("localTime")
-                           //@DateTimeFormat(pattern = "HH:mm:ss") LocalTime localTime
     )
             throws IOException, MessagingException {
         if(bindingResult.hasErrors()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
+        movieEntity movieInstance = movieRepo.findByTitle(movieTitle);
+        if(!showRepo.existsByLocalDateAndLocalTime(showForm.getLocalDate(), showForm.getLocalTime())
+                && showRepo.findAllConflictingShows(showForm.getLocalDate(), showForm.getLocalTime(),
+                    showForm.getLocalTime().plusMinutes(movieInstance.getDuration())).isEmpty()) {
 
-        if(!showRepo.existsByLocalDateAndLocalTime(showForm.getLocalDate(), showForm.getLocalTime())) {
-            movieEntity movieInstance = movieRepo.findByTitle(movieTitle);
 
             System.out.println(showForm.getLocalDate());
             System.out.println(showForm.getLocalTime());
@@ -101,6 +99,7 @@ public class AddShowController {
             showForm.setMovie(movieInstance);
             showForm.setLocalDate(showForm.getLocalDate());
             showForm.setLocalTime(showForm.getLocalTime());
+            showForm.setEndTime(showForm.getLocalTime().plusMinutes(movieInstance.getDuration()));
             Set<showEntity> shows = new HashSet<>();
             shows.add(showForm);
             movieInstance.setShows(shows);

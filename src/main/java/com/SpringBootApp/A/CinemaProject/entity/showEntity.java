@@ -18,6 +18,7 @@ public class showEntity {
 
     private LocalDate localDate;
     private LocalTime localTime;
+    private LocalTime endTime;
 
     @ManyToOne
     @JoinColumn(name = "movie_id")
@@ -59,6 +60,13 @@ public class showEntity {
         this.movie = movie;
     }
 
+    public LocalTime getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(LocalTime endTime) {
+        this.endTime = endTime;
+    }
 
     public showroomEntity getShowroom() {
         return showroom;
