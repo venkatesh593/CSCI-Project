@@ -83,11 +83,11 @@
                   </ul>
                   <ul class="navbar-nav" style="float: right">
                       <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                          <a class="nav-link dropdown-toggle" style="padding-top: 20px;" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                               aria-haspopup="true" aria-expanded="false">
                               Testing
                           </a>
-                          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style=" left: -190px;top: 50px;">
                               <a class="dropdown-item" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/editprofile.html">
                                   Profile</a>
                               <a class="dropdown-item" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/editpaymentinformation.html">Manage Payment Methods</a>
