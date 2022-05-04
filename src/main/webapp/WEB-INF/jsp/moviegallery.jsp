@@ -110,8 +110,7 @@ Support: https://sellix.io/fr0zen/contact
                                 <a class="dropdown-item" href="/editprofile/${pageContext.request.userPrincipal.name}">
                                     Profile</a>
                                 <a class="dropdown-item" href="/managePayCards/${pageContext.request.userPrincipal.name}">Manage Payment Methods</a>
-                                <a class="dropdown-item" href="#">Edit Billing Information</a>
-                                <a class="dropdown-item" href="#">Order History</a>
+                                <a class="dropdown-item" href="/orderHistory/${pageContext.request.userPrincipal.name}">Order History</a>
                                 <a class="dropdown-item"
                                    href="/logout">Logout</a>
                             </div>

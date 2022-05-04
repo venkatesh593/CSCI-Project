@@ -72,7 +72,7 @@
                                     <a class="dropdown-item" href="/editprofile">
                                         Profile</a>
                                     <a class="dropdown-item" href="/managePayCards/${pageContext.request.userPrincipal.name}">Manage Payment Methods</a>
-                                    <a class="dropdown-item" href="/editbiilinginformation">Edit Billing Information</a>
+                                    <a class="dropdown-item" href="/orderHistory/${pageContext.request.userPrincipal.name}">Edit Billing Information</a>
 
                                     <a class="dropdown-item" href="/login">Logout</a>
                                     <a class="dropdown-item" href="/admin">Admin Portal</a>

@@ -53,7 +53,7 @@
                             <a class="dropdown-item" href="/editprofile/${pageContext.request.userPrincipal.name}">
                                 Profile</a>
                             <a class="dropdown-item" href="/managePayCards/${pageContext.request.userPrincipal.name}">Manage Payment Methods</a>
-                            <a class="dropdown-item" href="/editbiilinginformation">Edit Billing Information</a>
+                            <a class="dropdown-item" href="/orderHistory/${pageContext.request.userPrincipal.name}">Order History</a>
 
                             <a class="dropdown-item" href="/logout">Logout</a>
                             <a class="dropdown-item" href="/admin">Admin Portal</a>
@@ -110,7 +110,7 @@
                                 </c:forEach>
                                 </tbody>
                             </table>
-                            
+
                     </div>
                 </div>
             </div>
