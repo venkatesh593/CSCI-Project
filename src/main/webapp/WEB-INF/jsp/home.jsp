@@ -69,7 +69,7 @@
                                     Profile
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style=" left: -190px;top: 50px;">
-                                    <a class="dropdown-item" href="/editprofile">
+                                    <a class="dropdown-item" href="/editprofile/${pageContext.request.userPrincipal.name}">
                                         Profile</a>
                                     <a class="dropdown-item" href="/managePayCards/${pageContext.request.userPrincipal.name}">Manage Payment Methods</a>
                                     <a class="dropdown-item" href="/orderHistory/${pageContext.request.userPrincipal.name}">Edit Billing Information</a>
