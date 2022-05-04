@@ -205,9 +205,6 @@
                             </div>
                         </div>
                         <div class="mt-4 mb-4 d-flex justify-content-between">
-                            <button class="btn btn-success px-3 project-btn-secondary" onclick="location.href = '/ordersummary';"
-                                type="button">Previous
-                            </button>
                             <form:button class="btn btn-success px-3 project-btn-primary"
                                 type="submit">Submit Order
                             </form:button>
@@ -222,6 +219,7 @@
                         <h5>Ticket type: </h5>
                         <h6>Adults: ${order.adults}</h6>
                         <h6>Children: ${order.children}</h6>
+                        <h5>Ticket Cost: $${order.totalPrice}</h5>
                         <h5>Seats:
                             <c:forEach items="${order.tickets}" var="ticket" varStatus="loop">
                                 ${ticket.seat.getRowNum()}${ticket.seat.getColNum()}
