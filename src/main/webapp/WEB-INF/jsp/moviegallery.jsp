@@ -102,7 +102,7 @@ Support: https://sellix.io/fr0zen/contact
                             <a class="nav-link" href="/login">Login</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" style="padding-top: 20px;" href="#" id="navbarDropdownMenuLink"
+                            <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdownMenuLink"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 ${pageContext.request.userPrincipal.name}
                             </a>
