@@ -19,16 +19,16 @@
                    </form> -->
                 <ul class="navbar-nav" style="float: left">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./moviegallery">Movies</a>
+                        <a class="nav-link active" aria-current="page" href="/moviegallery">Movies</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./registration">Sign Up</a>
+                        <a class="nav-link" href="/registration">Sign Up</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./login">Login</a>
+                        <a class="nav-link" href="/login">Login</a>
                     </li>
 
                 </ul>

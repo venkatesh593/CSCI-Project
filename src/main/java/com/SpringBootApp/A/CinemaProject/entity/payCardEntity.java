@@ -24,7 +24,6 @@ public class payCardEntity {
     private userEntity user;
 
 
-
     public String getCardType() {
         return cardType;
     }

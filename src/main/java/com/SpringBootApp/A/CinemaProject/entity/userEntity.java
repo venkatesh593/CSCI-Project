@@ -39,6 +39,9 @@ public class userEntity {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
     private Set<payCardEntity> payCards = new HashSet<>();
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+    private Set<orderEntity> orders = new HashSet<>();
+
     public String getUserStatus() {
         return userStatus;
     }
