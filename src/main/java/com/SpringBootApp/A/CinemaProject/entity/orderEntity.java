@@ -11,13 +11,25 @@ public class orderEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long order_id;
 
+    private String customerUserName;
+
     private float totalPrice;
 
     private int numTickets;
 
+    private int children = 0;
+
+    private int adults = 0;
+
+    @OneToOne
+    @JoinColumn(name = "show_id")
+    private showEntity show;
+
     @OneToOne
     @JoinColumn(name = "promo_id")
-    private promoEntity promo;
+    private promoEntity promoEntity;
+
+    private String promoCode;
 
     @OneToOne
     @JoinColumn(name = "payCard_id")
@@ -34,12 +46,54 @@ public class orderEntity {
         return order_id;
     }
 
+    public String getCustomerUserName() {
+        return customerUserName;
+    }
+
+    public void setCustomerUserName(String customerUserName) {
+        this.customerUserName = customerUserName;
+    }
+
+    public int getChildren() { return this.children; }
+
+    public void setChildren(int children) { this.children = children; }
+
+    public int getAdults() { return this.adults; }
+
+    public void setAdults(int adults) { this.adults = adults;}
+
+    public int getAdultTickets() {
+        int adultTickets = 0;
+        for (ticketEntity t : tickets) {
+            if(t.getAge() == ticketType.ADULT)
+                adultTickets = adultTickets + 1;
+        }
+        return adultTickets;
+    }
+
+    public int getChildTickets() {
+        int childTickets = 0;
+        for (ticketEntity t : tickets) {
+            if(t.getAge() == ticketType.CHILD)
+                childTickets = childTickets + 1;
+        }
+        return childTickets;
+    }
+
     public void setOrder_id(long order_id) {
         this.order_id = order_id;
     }
 
     public float getTotalPrice() {
         return totalPrice;
+    }
+
+    public void setShow(showEntity show) {
+        this.show = show;
+    }
+
+    public showEntity getShow() {
+        return show;
     }
 
     public void setTotalPrice(float totalPrice) {
@@ -55,11 +109,19 @@ public class orderEntity {
     }
 
     public promoEntity getPromo() {
-        return promo;
+        return promoEntity;
     }
 
     public void setPromo(promoEntity promo) {
-        this.promo = promo;
+        this.promoEntity = promo;
+    }
+
+    public String getPromoCode() {
+        return promoCode;
+    }
+
+    public void setPromoCode(String promoCode) {
+        this.promoCode = promoCode;
     }
 
     public payCardEntity getPayCard() {

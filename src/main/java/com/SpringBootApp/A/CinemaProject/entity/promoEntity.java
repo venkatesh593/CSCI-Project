@@ -17,7 +17,7 @@ public class promoEntity {
 
     private String expDate;
 
-    private String promoAmt;
+    private float promoAmt;
 
 
 
@@ -55,11 +55,11 @@ public class promoEntity {
         this.expDate = expDate;
     }
 
-    public String getPromoAmt() {
+    public float getPromoAmt() {
         return promoAmt;
     }
 
-    public void setPromoAmt(String promoAmt) {
+    public void setPromoAmt(float promoAmt) {
         this.promoAmt = promoAmt;
     }
 }

@@ -121,7 +121,7 @@
                               <label for="promotion-code">Promotion Code</label>
                           </div>
                           <div class="form-floating mb-3">
-                              <form:input type="text" class="form-control" id="promotion-amt" name="promotion-amt"
+                              <form:input type="number" class="form-control" id="promotion-amt" name="promotion-amt"
                                      placeholder="Promotion Amount" path="promoAmt"/>
                               <label for="promotion-amt">Promotion Amount</label>
                           </div>

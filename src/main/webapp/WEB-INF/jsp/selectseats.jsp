@@ -6,76 +6,76 @@
 
 <!-- navbarstarting -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
-    integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
-    crossorigin="anonymous"></script>
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
-    integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
-    crossorigin="anonymous"></script>
+        integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+        crossorigin="anonymous"></script>
 <link href="../css/selectseats.css" rel="stylesheet">
 <link href="../css/navbar.css" rel="stylesheet">
 <link rel="stylesheet" href="../css/global.css">
 
 <script>// Select all the required DOM elements
-    const container = document.querySelector(".container");
-    const seats = document.querySelectorAll(".row .seat:not(.occupied)");
-    let count = document.getElementById("count");
-    let total = document.getElementById("total");
+const container = document.querySelector(".container");
+const seats = document.querySelectorAll(".row .seat:not(.occupied)");
+let count = document.getElementById("count");
+let total = document.getElementById("total");
 
-    populateUI();
-    let ticketPrice = 12;
-
-
-
-    // Populate UI
-    function populateUI() {
-        // getting stored index of selected seats from local storage
-
-        if (selectedSeats !== null && selectedSeats.length > 0) {
-            // looping through list of seats
-            seats.forEach((seat, index) => {
-                // indexOf() returns index of given value
-                // here we are checking if selectedSeats contains the seat from seats
-                // if yes than add class of selected
-                if (selectedSeats.indexOf(index) > -1) {
-                    seat.classList.add("selected");
-                }
-            });
-        }
-        // Event Listener
-        container.addEventListener("click", (e) => {
-            if (
-                e.target.classList.contains("seat") &&
-                !e.target.classList.contains("occupied")
-            ) {
-                e.target.classList.toggle("selected");
+populateUI();
+let ticketPrice = 12;
 
 
+
+// Populate UI
+function populateUI() {
+    // getting stored index of selected seats from local storage
+
+    if (selectedSeats !== null && selectedSeats.length > 0) {
+        // looping through list of seats
+        seats.forEach((seat, index) => {
+            // indexOf() returns index of given value
+            // here we are checking if selectedSeats contains the seat from seats
+            // if yes than add class of selected
+            if (selectedSeats.indexOf(index) > -1) {
+                seat.classList.add("selected");
             }
         });
-
-        // update count and total happens only on event change
-        // we need to trigger the updateCountAndTotal()
-
     }
-    function redirectToNextPage() {
-        window.location.href = "./ordersummary.html"
-    }
+    // Event Listener
+    container.addEventListener("click", (e) => {
+        if (
+            e.target.classList.contains("seat") &&
+            !e.target.classList.contains("occupied")
+        ) {
+            e.target.classList.toggle("selected");
+
+
+        }
+    });
+
+    // update count and total happens only on event change
+    // we need to trigger the updateCountAndTotal()
+
+}
+function redirectToNextPage() {
+    window.location.href = "./ordersummary.html"
+}
 </script>
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="/"><img style="height: 50px; width:190px" src="../images/project_logo.png"
-                alt=""></a>
+                                              alt=""></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -104,15 +104,15 @@
                 <ul class="navbar-nav" style="float: right">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Profile
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="/editprofile/${pageContext.request.userPrincipal.name}">
+                            <a class="dropdown-item" href="/editprofile">
                                 Profile</a>
-                            <a class="dropdown-item" href="/managePayCards/${pageContext.request.userPrincipal.name}">Manage Payment Methods</a>
-                            <a class="dropdown-item" href="/editbiilinginformation">Edit Billing Information</a>
-                           
+                            <a class="dropdown-item" href="./editpaymentinformation.html">Manage Payment Methods</a>
+                            <a class="dropdown-item" href="./editbiilinginformation.html">Edit Billing Information</a>
+
                             <a class="dropdown-item" href="/logout">Logout</a>
                             <a class="dropdown-item" href="/admin">Admin Portal</a>
                         </div>
@@ -157,49 +157,46 @@
 
 <body style="background: aliceblue;margin-top: 30px; overflow: hidden;">
 
-        <div class="movie-container" style="background: black;padding: 60px">
-            <h2>Please Select Seats</h2>
-            <ul class="showcase">
-                <li>
-                    <div class="seat"></div>
-                    <small>Available</small>
-                </li>
-                <li>
-                    <div class="seat selected"></div>
-                    <small>Selected</small>
-                </li>
-                <li>
-                    <div class="seat occupied"></div>
-                    <small>Occupied</small>
-                </li>
-            </ul>
+<div class="movie-container" style="background: black;padding: 60px">
+    <form:form method="POST" modelAttribute="bookingForm">
+    <label for="show_id">${bookingForm.movie.title} at ${bookingForm.localTime} on ${bookingForm.localDate}</label><br>
+    <form:hidden class="form-control" id="show_id" name="show_id" value="${bookingForm.show_id}"
+                 path="show_id" />
+    <h2>Please Select Seats</h2>
+    <ul class="showcase">
+        <li>
+            <div class="seat"></div>
+            <small>Available</small>
+        </li>
+        <li>
+            <div class="seat selected"></div>
+            <small>Selected</small>
+        </li>
+        <li>
+            <div class="seat occupied"></div>
+            <small>Occupied</small>
+        </li>
+    </ul>
 
-            <div class="container">
-                <div class="screen"></div>
+    <div class="container">
+        <div class="screen"></div>
 
-                    <c:forEach varStatus="rows" begin="0" end="${bookingForm.getShowroom().numRows - 1}" >
-                        <div class="row">
-                            <c:forEach varStatus="cols" begin="0" end="${bookingForm.getShowroom().numCols - 1}">
-                                <div class="seat" id="${bookingForm.getShowroom().numRows}"></div>
-                            </c:forEach>
-                        </div>
-                    </c:forEach>
-            </div>
-        </div>
-            <!-- <script src="script.js"></script> -->
-            <script src="script.js"></script>
-    </body>
+        <c:forEach items="${showroom.seats}" var="seats" varStatus="index">
+            <c:if test="${index.index % 5 == 0}">
+                <div class="row"></div>
+            </c:if>
 
-    <br /><br />
+            <form:checkbox element="div" path="showroom.seats[${index.index}].status" class="seat"
+                           id="${bookingForm.getShowroom().numRows}"
+                           value="${seat.isStatus()}" ></form:checkbox>
 
-    <div class="displayerBoxes">
-        <center>
-            <form:form method="post" modelAttribute="bookingForm">
-                <!-- <label for="seats">Seats: </label><br> -->
-                <input class="btn btn-primary project-btn-primary" onclick="redirectToNextPage()" type="submit" value="Continue">
-            </form:form>
-        </center>
+        </c:forEach>
+        <form:button class="btn btn-primary project-btn-primary" type="submit" value="Continue">
+        </form:button>
+        </form:form>
     </div>
+</div>
+</div>
 </body>
 
 </html>

@@ -54,6 +54,14 @@ public class showroomEntity {
         this.capacity = capacity;
     }
 
+    public seatEntity findSeat(int row, int col) {
+        for(seatEntity s : seats) {
+            if(s.getRowNum() == row && s.getColNum() == col)
+                return s;
+        }
+        return null;
+    }
+
     public List<seatEntity> getSeats() {
         return seats;
     }

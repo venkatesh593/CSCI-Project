@@ -71,7 +71,7 @@ public class PromotionsController {
         return "redirect:/managePromotions";
     }
 
-    private void sendmail(String emailRecipient, String promoCode, String promoAmt) throws AddressException, MessagingException, IOException {
+    private void sendmail(String emailRecipient, String promoCode, float promoAmt) throws AddressException, MessagingException, IOException {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");

@@ -9,9 +9,7 @@ public class ticketEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long ticket_id;
 
-    private String age;
-
-    private long price;
+    private ticketType age = ticketType.ADULT;
 
     @OneToOne
     @JoinColumn(name = "seat_id")
@@ -29,21 +27,14 @@ public class ticketEntity {
         this.ticket_id = ticket_id;
     }
 
-    public String getAge() {
+    public ticketType getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(ticketType age) {
         this.age = age;
     }
 
-    public long getPrice() {
-        return price;
-    }
-
-    public void setPrice(long price) {
-        this.price = price;
-    }
 
     public seatEntity getSeat() {
         return seat;
