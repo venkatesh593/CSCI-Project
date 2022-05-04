@@ -20,9 +20,9 @@
         window.location.href = "./ordersummary.html"
     }
 </script>
-<link href="../css/orderconfirmation.css" rel="stylesheet">
-<link href="../css/navbar.css" rel="stylesheet">
-<link rel="stylesheet" href="../css/global.css">
+<link href="/css/orderconfirmation.css" rel="stylesheet">
+<link href="/css/navbar.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/global.css">
 
 
 <body>

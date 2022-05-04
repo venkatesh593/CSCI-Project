@@ -149,9 +149,35 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="card p-3">
+                    <table class="table ">
+                        <thead>
+                        <tr style="text-align: center;">
+                            <th scope="col"></th>
+                            <th scope="col">Exp/Date</th>
+                            <th scope="col">Card Type</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="paycard" items="${order.user.payCards}">
+                            <tr style="text-align: center;">
+                                <td><button onclick="window.location.href='/orderconfirmation/${order.order_id}/${paycard.payCard_id}'"
+                                            class="btn project-btn-primary">Use This Card
+                                </button></td>
+                                <td scope="row">${paycard.expDate}</td>
+
+                                <td>
+                                    <p>${paycard.cardType}</p>
+                                </td>
+
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+
                     <form:form modelAttribute="payCardForm" method="POST">
                         <div class="mt-4 mb-4">
-                            <h6 class="text-uppercase">Payment details</h6>
+                            <h6 class="text-uppercase">Add New Payment Info</h6>
                             <div class="input mt-3">
                                 <form:input type="text" class="form-control"
                                             path="cardType" required="required"></form:input>

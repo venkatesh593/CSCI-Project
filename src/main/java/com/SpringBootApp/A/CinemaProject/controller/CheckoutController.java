@@ -43,10 +43,9 @@ public class CheckoutController {
         payCardForm.setUser(orderInstance.getUser());
         payCardRepo.save(payCardForm);
 
-        orderInstance.setPayCard(payCardForm);
         orderRepo.save(orderInstance);
 
-        return "redirect:/orderconfirmation/"+order_id;
+        return "redirect:/orderconfirmation/"+order_id+"/"+payCardForm.getPayCard_id();
     }
 
 }
