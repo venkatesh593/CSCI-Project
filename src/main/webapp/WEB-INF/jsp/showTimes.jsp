@@ -110,8 +110,7 @@
                                 </c:forEach>
                                 </tbody>
                             </table>
-                            <button onClick="location.href='/selectseats' " class="btn project-btn-primary"
-                                type="submit" style="margin-left: 43%; margin-top: 10px;">Select Seats</button>
+                            
                     </div>
                 </div>
             </div>
