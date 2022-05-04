@@ -1,6 +1,4 @@
 
 *.xml
 *.class
-target/classes/data/spring-boot-h2-db.mv.db
-target/classes/data/spring-boot-h2-db.mv.db
-src/main/resources/data/spring-boot-h2-db.mv.db
+
