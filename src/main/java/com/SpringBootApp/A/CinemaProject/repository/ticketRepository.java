@@ -7,9 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.Collection;
 
 public interface ticketRepository extends CrudRepository<ticketEntity, Long> {
-    Collection<ticketEntity> findAllById(long id);
 
-    ticketEntity findById(long id);
-
+    ticketEntity findById(long ticket_id);
     Collection<ticketEntity> findAllByOrder(orderEntity order);
 }

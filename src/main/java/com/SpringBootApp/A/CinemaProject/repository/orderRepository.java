@@ -7,7 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.Collection;
 
 public interface orderRepository extends CrudRepository<orderEntity, Long> {
-    orderEntity findById(long id);
-    Collection<orderEntity> findAllById(long id);
+    orderEntity findById(long order_id);
     Collection<orderEntity> findAllByUser(userEntity user);
 }
