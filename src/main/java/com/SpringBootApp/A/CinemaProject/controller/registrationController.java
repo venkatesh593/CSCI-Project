@@ -66,18 +66,7 @@ public class registrationController {
         userForm.setZipCode(userForm.getZipCode());
         // Opt-in Promotions
         userForm.setWantsPromotions(userForm.getWantsPromotions());
-        // Payment Card
-        /*
-        payForm.setCardType(payForm.getCardType());
-        payForm.setCardNumber(payForm.getCardNumber());
-        payForm.setExpDate(payForm.getExpDate());
-        payForm.setCvv(payForm.getCvv());
-        payForm.setUser(userForm);
-        Set<payCardEntity> payCards = new HashSet<>();
-        payCards.add(payForm);
-        userForm.setPayCards(payCards);
 
-         */
         // Confirmation Email
         sendmail(userForm.getEmail().toLowerCase(), verCode);
         userRepo.save(userForm);
@@ -135,16 +124,7 @@ public class registrationController {
         msg.setSubject("Registration Confirmation Email");
         msg.setContent("Hello, \n\nThank you for registering to our cinema e-booking system!\n\nYour verification code is: "+verCode, "text/html");
         msg.setSentDate(new Date());
-        /*
-        MimeBodyPart messageBodyPart = new MimeBodyPart();
-        messageBodyPart.setContent("Tutorials point email", "text/html");
-        Multipart multipart = new MimeMultipart();
-        multipart.addBodyPart(messageBodyPart);
-        MimeBodyPart attachPart = new MimeBodyPart();
-        attachPart.attachFile("/var/tmp/image19.png");
-        multipart.addBodyPart(attachPart);
-        msg.setContent(multipart);
-        */
+
         Transport.send(msg);
     }
 }
