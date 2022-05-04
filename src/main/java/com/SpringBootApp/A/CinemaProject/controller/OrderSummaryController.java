@@ -35,7 +35,14 @@ public class OrderSummaryController {
 
 
     @RequestMapping(value = "ordersummary/{order_id}", method = RequestMethod.GET)
-    public String showOrderSummary(@PathVariable("order_id") long order_id, Model model, orderEntity orderForm) {
+    public String showOrderSummary(@PathVariable("order_id") long order_id, Model model, orderEntity orderForm,
+                                   String error) {
+
+        if(error != null) {
+            model.addAttribute("error", "You've only selected one seat, please return to the previous" +
+                    "page to change your seat selection.");
+        }
+
         orderEntity order = orderRepo.findById(order_id);
         model.addAttribute("order", order);
         model.addAttribute("orderForm", new orderEntity());
@@ -52,10 +59,13 @@ public class OrderSummaryController {
         orderInstance.setPromo(promoRepo.findByPromoCode(orderForm.getPromoCode()));
         orderInstance.setAdults(orderForm.getAdults());
         orderInstance.setChildren(orderForm.getChildren());
+        if(orderInstance.getChildren() + orderInstance.getAdults() > orderInstance.getNumTickets()) {
+            return "redirect:/ordersummary/"+order_id+"?error";
+        }
         float total = ((orderInstance.getChildren()* ticketType.CHILD.price)
                 + (orderInstance.getAdults() * ticketType.ADULT.price));
         if(orderInstance.getPromo() != null) {
-            total = total - (total * orderInstance.getPromo().getPromoAmt());
+            total = total - (total * (orderInstance.getPromo().getPromoAmt()/100));
         }
         orderInstance.setNumTickets(orderForm.getChildren() + orderForm.getAdults());
         orderInstance.setTotalPrice(total);

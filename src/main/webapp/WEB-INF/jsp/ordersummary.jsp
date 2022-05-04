@@ -6,8 +6,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link href="../css/navbar.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/global.css">
+    <link href="/css/navbar.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/global.css">
 
     <title>Your Order</title>
 </head>
@@ -15,7 +15,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/"><img style="height: 50px; width:190px" src="../images/project_logo.png"
+            <a class="navbar-brand" href="/"><img style="height: 50px; width:190px" src="/images/project_logo.png"
                     alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -74,6 +74,9 @@
     <section class="pt-5 pb-5 text-black" style="margin-top: 80px;">
         <div class="container">
             <div class="row w-100 shadow-lg p-3 mb-5 bg-white rounded">
+                <c:if test="${param.error !=null}">
+                    <div class="alert alert-danger">${error}</div>
+                </c:if>
                 <div class="col-lg-12 col-md-12 col-12">
                     <h3 class="display-5 mb-2 text-center">Your Order</h3>
                     <br>
@@ -83,8 +86,8 @@
                                 <th scope="col">Movie</th>
                                 <th scope="col">Seats</th>
                                 <th scope="col">Hall</th>
-                                <th scope="col">Adult ($12.98)</th>
-                                <th scope="col">Child ($6.95)</th>
+                                <th scope="col">Adult ($10.00)</th>
+                                <th scope="col">Child ($7.50)</th>
                                 <th scope="col">Add Promotion Code</th>
                                 <th scope="col">Actions</th>
                             </tr>
@@ -129,13 +132,10 @@
                         </tbody>
                     </table>
                 </div>
-                <h4 style="text-align: right;">Total: $12.99</h4>
+                <h4 style="text-align: right;">Total: $${order.totalPrice}</h4>
                 <br>
                 <br>
                 <div>
-                    <button type="button" onclick="location.href = './moviegallery.html';"
-                        class="btn btn-success mb-4 btn-lg pl-5 pr-5 float-start project-btn-secondary">Previous
-                    </button>
                     <form:button type="submit"
                         class="btn btn-primary mb-4 btn-lg pl-5 pr-5 float-end project-btn-primary">Checkout
                     </form:button>

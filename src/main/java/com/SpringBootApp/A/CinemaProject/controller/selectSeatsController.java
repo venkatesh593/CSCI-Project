@@ -59,8 +59,10 @@ public class selectSeatsController {
                     ticket.setOrder(order);
                     ticketRepo.save(ticket);
                     order.getTickets().add(ticket);
+                    order.setNumTickets(order.getNumTickets() + 1);
                 }
             }
+            order.setTotalPrice(order.getNumTickets() * ticketType.ADULT.price);
             orderRepo.save(order);
             showroomRepo.save(newShow.get().getShowroom());
             return "redirect:/ordersummary/"+ order.getOrder_id();
