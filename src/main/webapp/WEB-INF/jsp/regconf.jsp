@@ -89,9 +89,10 @@
                <label for="verCode">Verification Code</label>
         </div>
         <div class="d-grid">
-             <form:button class="from-control" type="submit">Submit
-             </form:button>
-
+            <button class="from-control" style="  background-color: #FDB44B!important;
+            border-color: black!important;
+            color: black!important;" type="submit" class="project-btn-primary">Submit
+            </button>
         </div>
         </form:form>
     </div>
