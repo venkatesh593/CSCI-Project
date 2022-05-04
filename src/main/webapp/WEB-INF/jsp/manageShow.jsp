@@ -87,9 +87,9 @@
                             Testing
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style=" left: -190px;top: 50px;">
-                            <a class="dropdown-item" href="">
+                            <a class="dropdown-item" href="/editprofile/${pageContext.request.userPrincipal.name}">
                                 Profile</a>
-                            <a class="dropdown-item" href="">Manage Payment Methods</a>
+                            <a class="dropdown-item" href="/managePayCards/${pageContext.request.userPrincipal.name}">Manage Payment Methods</a>
                             <a class="dropdown-item" href="">Edit Billing Information</a>
                             <a class="dropdown-item" href="#">Order History</a>
                             <a class="dropdown-item" href="/logout">Logout</a>
@@ -130,7 +130,7 @@
                     <td class="align-middle">${show.localTime}</td>
                     <td class="align-middle">${show.endTime}</td>
                     <td class="align-middle">
-                        <a href="./editMovie.html">
+                        <a href="/editMovie">
                             <img src="../images/pencil.svg">
                         </a>
                     </td>

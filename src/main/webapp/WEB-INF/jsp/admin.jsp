@@ -17,7 +17,7 @@
             window.open('https://www.youtube.com/watch?v=0LHxvxdRnYc', '_blank')
         }
         function redirectToExtern() {
-            window.location.href = './selectseats.html'
+            window.location.href = '/selectseats'
         }
     </script>
 
@@ -41,16 +41,16 @@
                        </form> -->
                 <ul class="navbar-nav" style="float: left">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./admin">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/admin">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./moviegallery">Movies</a>
+                        <a class="nav-link active" aria-current="page" href="/moviegallery">Movies</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./registration">Sign Up</a>
+                        <a class="nav-link" href="/registration">Sign Up</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./login">Login</a>
+                        <a class="nav-link" href="/login">Login</a>
                     </li>
 
                 </ul>
@@ -61,13 +61,13 @@
                             ${pageContext.request.userPrincipal.name}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style=" left: -190px;top: 50px;">
-                            <a class="dropdown-item" href="./editprofile">
+                            <a class="dropdown-item" href="/editprofile/${pageContext.request.userPrincipal.name}">
                                 Profile</a>
-                            <a class="dropdown-item" href="./editpaymentinformation.html">Manage Payment Methods</a>
-                            <a class="dropdown-item" href="./editbiilinginformation.html">Edit Billing Information</a>
+                            <a class="dropdown-item" href="/managePayCards/${pageContext.request.userPrincipal.name}">Manage Payment Methods</a>
+                            <a class="dropdown-item" href="/editbiilinginformation">Edit Billing Information</a>
                             <a class="dropdown-item" href="#">Order History</a>
-                            <a class="dropdown-item" href="./logout">Logout</a>
-                            <a class="dropdown-item" href="./admin">Admin Portal</a>
+                            <a class="dropdown-item" href="/logout">Logout</a>
+                            <a class="dropdown-item" href="/admin">Admin Portal</a>
                         </div>
                     </li>
                 </ul>

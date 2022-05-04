@@ -71,7 +71,7 @@
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style=" left: -190px;top: 50px;">
                                     <a class="dropdown-item" href="/editprofile">
                                         Profile</a>
-                                    <a class="dropdown-item" href="/editpaycard">Manage Payment Methods</a>
+                                    <a class="dropdown-item" href="/managePayCards/${pageContext.request.userPrincipal.name}">Manage Payment Methods</a>
                                     <a class="dropdown-item" href="/editbiilinginformation">Edit Billing Information</a>
 
                                     <a class="dropdown-item" href="/login">Logout</a>

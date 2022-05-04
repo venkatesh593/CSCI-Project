@@ -67,16 +67,16 @@
                          </form> -->
                   <ul class="navbar-nav" style="float: left">
                       <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/home.html">Home</a>
+                          <a class="nav-link active" aria-current="page" href="/home">Home</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/moviegallery.html">Movies</a>
+                          <a class="nav-link active" aria-current="page" href="/moviegallery">Movies</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/signup.html">Sign Up</a>
+                          <a class="nav-link" href="/registration">Sign Up</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/signin.html">Login</a>
+                          <a class="nav-link" href="/login">Login</a>
                       </li>
 
                   </ul>
@@ -87,12 +87,12 @@
                               Testing
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style=" left: -190px;top: 50px;">
-                              <a class="dropdown-item" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/editprofile.html">
+                              <a class="dropdown-item" href="/editprofile/${pageContext.request.userPrincipal.name}">
                                   Profile</a>
-                              <a class="dropdown-item" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/editpaymentinformation.html">Manage Payment Methods</a>
+                              <a class="dropdown-item" href="/managePayCards/${pageContext.request.userPrincipal.name}">Manage Payment Methods</a>
                               <a class="dropdown-item" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/editbiilinginformation.html">Edit Billing Information</a>
                               <a class="dropdown-item" href="#">Order History</a>
-                              <a class="dropdown-item" href="./signout">Logout</a>
+                              <a class="dropdown-item" href="/logout">Logout</a>
                               <a class="dropdown-item" href="../../../../../../../Downloads/CSCI-Project-SeDeliverable1/CSCI-Project-SeDeliverable1/html/adminMain.html">Admin Portal</a>
                           </div>
                       </li>

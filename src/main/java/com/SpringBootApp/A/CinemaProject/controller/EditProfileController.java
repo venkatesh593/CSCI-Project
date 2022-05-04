@@ -28,7 +28,6 @@ public class EditProfileController {
     @RequestMapping(value = "editprofile/{userName}", method = RequestMethod.GET)
     public String showEditProfilePage(@PathVariable("userName") String userName, Model model, userEntity userForm) {
         userEntity loggedUser = userRepo.findByUserName(userName);
-        //System.out.println(loggedUser.getUserName());
         model.addAttribute("loggedUser", loggedUser);
         model.addAttribute("userForm", new userEntity());
 
@@ -39,7 +38,7 @@ public class EditProfileController {
     @RequestMapping(value = "editprofile/{userName}", method = RequestMethod.POST)
     public String sendEditProfilePage(@ModelAttribute("userForm") userEntity userForm, Model model,
                                       @PathVariable("userName") String userName) {
-        userEntity accountInstance = userRepo.findByUserName(userForm.getUserName());
+        userEntity accountInstance = userRepo.findByEmail(userForm.getEmail());
 
         accountInstance.setFirstName(userForm.getFirstName());
         accountInstance.setLastName(userForm.getLastName());
@@ -57,6 +56,6 @@ public class EditProfileController {
 
         userRepo.save(accountInstance);
 
-        return "redirect:/managePayCards/" + userForm.getUserName();
+        return "redirect:/editprofile/" + userForm.getUserName();
     }
 }

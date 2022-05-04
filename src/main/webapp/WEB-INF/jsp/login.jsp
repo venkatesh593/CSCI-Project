@@ -56,9 +56,9 @@
                             ${pageContext.request.userPrincipal.name}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style=" left: -190px;top: 50px;">
-                            <a class="dropdown-item" href="/editprofile">Edit Profile</a>
-                            <a class="dropdown-item" href="./editpaymentinformation.html">Manage Payment Methods</a>
-                            <a class="dropdown-item" href="./editbiilinginformation.html">Edit Billing Information</a>
+                            <a class="dropdown-item" href="/editprofile/${pageContext.request.userPrincipal.name}">Edit Profile</a>
+                            <a class="dropdown-item" href="/managePayCards/${pageContext.request.userPrincipal.name}">Manage Payment Methods</a>
+                            <a class="dropdown-item" href="/editbiilinginformation">Edit Billing Information</a>
 
                             <a class="dropdown-item" href="/logout">Logout</a>
                             <a class="dropdown-item" href="/admin">Admin Portal</a>

@@ -34,7 +34,7 @@
                        </form> -->
                 <ul class="navbar-nav" style="float: left">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/home">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/moviegallery">Movies</a>
@@ -54,13 +54,13 @@
                             ${pageContext.request.userPrincipal.name}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style=" left: -190px;top: 50px;">
-                            <a class="dropdown-item" href="/editprofile">
+                            <a class="dropdown-item" href="/editprofile/${pageContext.request.userPrincipal.name}">
                                 Profile</a>
-                            <a class="dropdown-item" href="./editpaymentinformation.html">Manage Payment Methods</a>
-                            <a class="dropdown-item" href="./editbiilinginformation.html">Edit Billing Information</a>
+                            <a class="dropdown-item" href="/managePayCards/${pageContext.request.userPrincipal.name}">Manage Payment Methods</a>
+                            <a class="dropdown-item" href="/editbiilinginformation">Edit Billing Information</a>
 
-                            <a class="dropdown-item" href="./signout">Logout</a>
-                            <a class="dropdown-item" href="./adminMain.html">Admin Portal</a>
+                            <a class="dropdown-item" href="/logout">Logout</a>
+                            <a class="dropdown-item" href="/admin">Admin Portal</a>
                         </div>
                     </li>
                 </ul>
